@@ -1784,3 +1784,47 @@ NoMethodError (undefined method `embed' for PantrySerializer:Class):
   [1m[36mPantryIngredient Load (2.1ms)[0m  [1mSELECT "pantry_ingredients".* FROM "pantry_ingredients"[0m
   [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL
   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL[0m
+  [1m[36mIngredient Load (7.0ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mIngredient Load (0.7ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36m (0.3ms)[0m  [1mSELECT "ingredients"."name" FROM "ingredients"[0m
+  [1m[35mIngredient Load (0.5ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36m (0.3ms)[0m  [1mSELECT "ingredients"."name" FROM "ingredients"[0m
+  [1m[35mIngredient Load (2.3ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "ingredients" ("name", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Yogurt"], ["category_id", 1], ["created_at", "2016-12-07 07:15:16.069753"], ["updated_at", "2016-12-07 07:15:16.069753"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "ingredients" ("name", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ground chunk"], ["category_id", 2], ["created_at", "2016-12-07 07:15:33.185148"], ["updated_at", "2016-12-07 07:15:33.185148"]]
+  [1m[35m (4.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ingredients" ("name", "category_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Cumin"], ["category_id", 3], ["created_at", "2016-12-07 07:15:43.569207"], ["updated_at", "2016-12-07 07:15:43.569207"]]
+  [1m[36m (11.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mPantryIngredient Load (1.0ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients"
+  [1m[36mPantryIngredient Load (0.3ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.7ms)[0m  SELECT  "pantries".* FROM "pantries" WHERE "pantries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "pantry_ingredients" ("pantry_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["pantry_id", 1], ["ingredient_id", 4], ["quantity", 2], ["created_at", "2016-12-07 07:16:47.077117"], ["updated_at", "2016-12-07 07:16:47.077117"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.2ms)[0m  SELECT "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.2ms)[0m  SELECT "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.2ms)[0m  SELECT "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (1.0ms)[0m  SELECT  "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?  ORDER BY "pantries"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.2ms)[0m  SELECT  "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?  ORDER BY "pantries"."id" ASC LIMIT 1  [["user_id", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" INNER JOIN "pantry_ingredients" ON "ingredients"."id" = "pantry_ingredients"."ingredient_id" WHERE "pantry_ingredients"."pantry_id" = ?[0m  [["pantry_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPantry Load (0.2ms)[0m  [1mSELECT  "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?  ORDER BY "pantries"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "ingredients" INNER JOIN "pantry_ingredients" ON "ingredients"."id" = "pantry_ingredients"."ingredient_id" WHERE "pantry_ingredients"."pantry_id" = ?  [["pantry_id", 1]]
+  [1m[36mIngredient Load (0.5ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ?[0m  [["name", "Cumin"]]
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ?  [["name", "Cumin"]]
+  [1m[36mIngredient Load (2.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mPantry Load (0.4ms)[0m  SELECT "pantries".* FROM "pantries" INNER JOIN "pantry_ingredients" ON "pantries"."id" = "pantry_ingredients"."pantry_id" WHERE "pantry_ingredients"."ingredient_id" = ?  [["ingredient_id", 6]]

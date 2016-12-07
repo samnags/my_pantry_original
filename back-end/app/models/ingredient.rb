@@ -1,7 +1,7 @@
 # == Schema Information
 #
 # Table name: ingredients
-#
+# =>
 #  id          :integer          not null, primary key
 #  name        :string
 #  category_id :integer
