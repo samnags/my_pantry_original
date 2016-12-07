@@ -1706,3 +1706,81 @@ NoMethodError (undefined method `embed' for PantrySerializer:Class):
   [1m[36mUser Load (7.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
   [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients"
   [1m[36mPantry Load (10.9ms)[0m  [1mSELECT "pantries".* FROM "pantries"[0m
+  [1m[36mUser Load (7.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPantry Load (1.0ms)[0m  [1mSELECT "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mIngredient Load (1.4ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "pantry_ingredients" ON "ingredients"."id" = "pantry_ingredients"."ingredient_id" WHERE "pantry_ingredients"."pantry_id" = ?  [["pantry_id", 1]]
+  [1m[36mPantryIngredient Load (0.5ms)[0m  [1mSELECT "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."pantry_id" = ?[0m  [["pantry_id", 1]]
+  [1m[35mIngredient Load (0.4ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mIngredient Load (0.7ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mIngredient Load (0.4ms)[0m  SELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mIngredient Load (0.4ms)[0m  SELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.6ms)[0m  SELECT "pantries".* FROM "pantries" INNER JOIN "pantry_ingredients" ON "pantries"."id" = "pantry_ingredients"."pantry_id" WHERE "pantry_ingredients"."ingredient_id" = ?  [["ingredient_id", 1]]
+  [1m[36mPantryIngredient Load (0.6ms)[0m  [1mSELECT "pantry_ingredients".* FROM "pantry_ingredients"[0m
+  [1m[35mIngredient Load (0.5ms)[0m  SELECT "ingredients".* FROM "ingredients"
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.5ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.5ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.6ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.4ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.4ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mPantryIngredient Load (0.6ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.7ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.5ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.4ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.4ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mPantryIngredient Load (1.1ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.3ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantry Load (0.7ms)[0m  [1mSELECT  "pantries".* FROM "pantries" WHERE "pantries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPantryIngredient Load (0.3ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantry Load (0.2ms)[0m  [1mSELECT  "pantries".* FROM "pantries" WHERE "pantries"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPantryIngredient Load (0.3ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mPantry Load (0.2ms)[0m  SELECT  "pantries".* FROM "pantries" WHERE "pantries"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPantryIngredient Load (0.3ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36mPantryIngredient Load (0.3ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT  "ingredients".* FROM "ingredients"  ORDER BY "ingredients"."id" DESC LIMIT 1
+  [1m[36mPantryIngredient Load (0.3ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mPantryIngredient Load (0.3ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" ASC LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "pantry_ingredients" ("pantry_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["pantry_id", 2], ["ingredient_id", 3], ["created_at", "2016-12-07 07:00:08.311724"], ["updated_at", "2016-12-07 07:00:08.311724"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mIngredient Load (0.4ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mPantryIngredient Load (0.4ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients"  ORDER BY "pantry_ingredients"."id" DESC LIMIT 1[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPantryIngredient Load (0.3ms)[0m  [1mSELECT  "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPantryIngredient Load (0.3ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pantry_ingredients"[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL
+  [1m[36mPantryIngredient Load (6.0ms)[0m  [1mSELECT "pantry_ingredients".* FROM "pantry_ingredients"[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT  "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "pantry_ingredients" WHERE "pantry_ingredients"."id" = ?  [["id", 1]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mPantryIngredient Load (0.5ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients"
+  [1m[36mPantryIngredient Load (2.1ms)[0m  [1mSELECT "pantry_ingredients".* FROM "pantry_ingredients"[0m
+  [1m[35mPantryIngredient Load (0.4ms)[0m  SELECT "pantry_ingredients".* FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "pantry_ingredients" WHERE "pantry_ingredients"."ingredient_id" IS NULL[0m
