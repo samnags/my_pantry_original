@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  scope :api do
-    resources :pantry
-  end
+
+  post '/login', to: "sessions#create"  
+  # scope :api do
+  #   resources :pantry
+  # end
 end

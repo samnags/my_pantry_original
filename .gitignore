@@ -13,5 +13,10 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+/log/*.log
+*log
 !/log/.keep
 /tmp
+
+/back-end/config/application.yml
+/front-end/node_modules/*
