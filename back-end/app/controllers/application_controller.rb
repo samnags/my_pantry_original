@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user
 
   def authenticate_user
      render json:{error: "Unauthorized User"} unless signed_in?
@@ -9,18 +10,18 @@ class ApplicationController < ActionController::Base
    end
 
    def current_user
-     User.find(Auth.decode(request.env["HTTP_AUTHORIZATION"][0]["user_id"])) if request.env["HTTP_AUTHORIZATION"].present?
+     User.find(Auth.decode(request.env["HTTP_AUTHORIZATION"])["user_id"]) if request.env["HTTP_AUTHORIZATION"].present?
    end
 
    private
 
-   def token
-     request.env["HTTP_AUTHORIZATION"].scan(/Bearer/).flatten.last
-   end
-
-   def auth_present?
-     !!request.env.fetch("HTTP_AUTHORIZATION", "").scan(/Bearer/).flatten.first
-   end
+  #  def token
+  #    request.env["HTTP_AUTHORIZATION"].scan(/Bearer/).flatten.last
+  #  end
+   #
+  #  def auth_present?
+  #    !!request.env.fetch("HTTP_AUTHORIZATION", "").scan(/Bearer/).flatten.first
+  #  end
 
 
 end
