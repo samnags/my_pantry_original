@@ -30,6 +30,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro', '~> 0.7'
 gem 'jwt'
+gem 'foreman'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

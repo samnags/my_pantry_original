@@ -18,5 +18,5 @@
 !/log/.keep
 /tmp
 
-/back-end/config/application.yml
-/front-end/node_modules/*
+config/application.yml
+client/node_modules/*
