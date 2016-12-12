@@ -4,7 +4,7 @@ export default function users(state = {}, action) {
     case 'SIGN_UP':
       return Object.assign({}, state, action.payload);
     case 'LOG_IN':
-      return ;
+      return Object.assign({}, state, action.payload);
     case 'LOG_OUT':
       return ;
     default:

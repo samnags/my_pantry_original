@@ -1,22 +1,17 @@
-import React, { Component }  from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signUp } from '../actions/index'
+import { login } from '../actions/index'
 
-class SignUp extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {name: '', email: '', password: ''}
+    this.state = {email: '', password: ''}
 
     this.handleClick = this.handleClick.bind(this)
-    this.onNameChange = this.onNameChange.bind(this)
     this.onEmailChange = this.onEmailChange.bind(this)
     this.onPasswordChange = this.onPasswordChange.bind(this)
-  }
-
-  onNameChange(event) {
-    this.setState({name: event.target.value})
   }
 
   onEmailChange(event) {
@@ -29,20 +24,18 @@ class SignUp extends Component {
 
   handleClick(event) {
     event.preventDefault()
-    this.props.signUp(this.state)
+    this.props.login(this.state)
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleClick}>
-          <label>Name</label>
-          <input type="text" placeholder="name" onChange={this.onNameChange} value={this.state.name}/>
           <label>Email</label>
           <input type="text" placeholder="email" onChange={this.onEmailChange} value={this.state.email}/>
           <label>Password</label>
           <input type="password" placeholder="password" onChange={this.onPasswordChange} value={this.state.password}/>
-          <input type="submit" value="Sign Up"/ >
+          <input type="submit" value="Login"/ >
         </form>
       </div>
     )
@@ -50,7 +43,7 @@ class SignUp extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ signUp }, dispatch)
+  return bindActionCreators({ login }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(null, mapDispatchToProps)(Login);

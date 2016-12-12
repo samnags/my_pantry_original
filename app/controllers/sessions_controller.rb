@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: auth_params[:email])
 
     if !!user && user.authenticate(auth_params[:password])
-      jwt = Auth.issue({user: user.email})
-      render json: {jwt: jwt}
+      jwt = Auth.issue({user_id: user.id})
+      render json: {jwt: jwt, user: { id: user.id, email: user.email} }
     else
-      render json: {error: 'Invalid login'}
+      render status: 404, json: {error: 'Invalid login'}
     end
   end
 
