@@ -1,6 +1,7 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { signUp } from '../actions/index'
 
 class SignUp extends Component {
   constructor(props) {
@@ -26,10 +27,9 @@ class SignUp extends Component {
     this.setState({password: event.target.value})
   }
 
-  handleClick() {
-    event.preventDefault()
-    debugger
-
+  handleClick(event) {
+    event.preventDefault()    
+    this.props.signUp(this.state)
   }
 
   render() {
@@ -50,7 +50,7 @@ class SignUp extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ SignUp }, dispatch)
+  return bindActionCreators({ signUp }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SignUp);

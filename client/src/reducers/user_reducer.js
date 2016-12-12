@@ -2,7 +2,7 @@
 export default function users(state = {}, action) {
   switch(action.type) {
     case 'SIGN_UP':
-      return ;
+      return Object.assign({}, state, action.payload);
     case 'LOG_IN':
       return ;
     case 'LOG_OUT':

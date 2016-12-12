@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: auth_params[:email])
 
     if !!user && user.authenticate(auth_params[:password])
-      jwt = Auth.issue({user_id: user.id})
-      render json: {jwt: jwt, user_id: user.id, user_email: user.email}
+      jwt = Auth.issue({user: user.email})
+      render json: {jwt: jwt}
     else
       render json: {error: 'Invalid login'}
     end
