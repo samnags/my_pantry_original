@@ -9,7 +9,7 @@ export function signUp(formData) {
       contentType:"application/json; charset=utf-8",
       datatype: 'json'
     }).then((response) => {
-      localStorage.setItem('token', response.jwt)
+      localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'SIGN_UP', payload: response.user})
     })
   }
@@ -24,11 +24,17 @@ export function login(formData) {
       contentType:"application/json; charset=utf-8",
       datatype: 'json'
     }).then((response) => {
-      localStorage.setItem('token', response.jwt)
+      localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'LOG_IN', payload: response.user})
     }).catch((response) => {
-      debugger
       // dispatch({type: 'LOG_IN_ERROR', payload: response.user})
     })
+  }
+}
+
+export function logout() {
+  localStorage.removeItem('jwt');
+  return function(dispatch) {
+      dispatch({type: 'LOG_OUT'})
   }
 }

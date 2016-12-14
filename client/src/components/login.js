@@ -7,24 +7,23 @@ class Login extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {email: '', password: ''}
-
+    this.state = {credentials: { email: '', password: ''} }
+    this.onChange = this.onChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
-    this.onEmailChange = this.onEmailChange.bind(this)
-    this.onPasswordChange = this.onPasswordChange.bind(this)
+
   }
 
-  onEmailChange(event) {
-    this.setState({email: event.target.value})
-  }
-
-  onPasswordChange(event) {
-    this.setState({password: event.target.value})
+  onChange(event) {
+    // debugger
+    const field = event.target.name
+    const credentials = this.state.credentials
+    credentials[field] = event.target.value
+    this.setState({credentials: credentials})
   }
 
   handleClick(event) {
     event.preventDefault()
-    this.props.login(this.state)
+    this.props.login(this.state.credentials)
   }
 
   render() {
@@ -32,9 +31,9 @@ class Login extends Component {
       <div>
         <form onSubmit={this.handleClick}>
           <label>Email</label>
-          <input type="text" placeholder="email" onChange={this.onEmailChange} value={this.state.email}/>
+          <input type="text" placeholder="email" name="email" onChange={this.onChange} value={this.state.credentials.email} />
           <label>Password</label>
-          <input type="password" placeholder="password" onChange={this.onPasswordChange} value={this.state.password}/>
+          <input type="password" placeholder="password" name="password" onChange={this.onChange} value={this.state.credentials.password} />
           <input type="submit" value="Login"/ >
         </form>
       </div>
