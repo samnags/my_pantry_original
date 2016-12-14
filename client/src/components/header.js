@@ -18,10 +18,14 @@ class Header extends Component {
   }
 
   render() {
+    if (this.props.logged_in) {
+      var button = <button onClick={this.logout}>Log Out</button>
+    }
     return(
       <div>
-        <Login />
         <SignUp />
+        <Login />
+        {button}
       </div>
     )
   }
