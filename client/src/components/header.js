@@ -4,6 +4,8 @@ import Login from './login'
 import { connect } from 'react-redux'
 import { logout } from '../actions/index'
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router'
+
 
 class Header extends Component {
   constructor(props) {
@@ -23,8 +25,9 @@ class Header extends Component {
     }
     return(
       <div>
-        <SignUp />
-        <Login />
+        <span><Link to="/">Home</Link></span>
+        <span><Link to="/signup">Sign Up</Link></span>
+        <span><Link to="/login">Login</Link></span>
         {button}
       </div>
     )

@@ -26,6 +26,7 @@ export function login(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'LOG_IN', payload: response.user})
+      
     }).catch((response) => {
       // dispatch({type: 'LOG_IN_ERROR', payload: response.user})
     })
