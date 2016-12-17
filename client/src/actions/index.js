@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { browserHistory } from 'react-router'
 
 export function signUp(formData) {
   return function(dispatch) {
@@ -11,6 +12,7 @@ export function signUp(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'SIGN_UP', payload: response.user})
+      browserHistory.push('/user')
     })
   }
 }
@@ -26,7 +28,7 @@ export function login(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'LOG_IN', payload: response.user})
-      
+      browserHistory.push('/user')
     }).catch((response) => {
       // dispatch({type: 'LOG_IN_ERROR', payload: response.user})
     })
@@ -36,6 +38,6 @@ export function login(formData) {
 export function logout() {
   localStorage.removeItem('jwt');
   return function(dispatch) {
-      dispatch({type: 'LOG_OUT'})
+    dispatch({type: 'LOG_OUT'})
   }
 }
