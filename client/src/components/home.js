@@ -5,26 +5,23 @@ import { fetchPantries } from '../actions/pantry'
 import Pantry from './pantry'
 
 class Home extends Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPantries()
   }
 
-  renderPantries(pantry) {
-    return (
-      <Pantry location={pantry} />
-    )
-  }
-
   render() {
+    if(this.props.pantries) {
+        var pantries = this.props.pantries.map(pantry => {
+          return <Pantry key={pantry.id} location={pantry.location} />
+        })
+      }
+
     return(
-      <div>{this.props.pantries.lengths > 0 ? 'yes' : 'no' }</div>
+      <div>
+        {pantries}
+      </div>
     )
   }
-
 
 }
 

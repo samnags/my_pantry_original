@@ -27,7 +27,7 @@ export function fetchPantries() {
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
       dispatch({type: 'FETCH_PANTRIES', payload: response })
-      // browserHistory.push('/home')
+      browserHistory.push('/home')
     })
   }
 }
