@@ -10,8 +10,8 @@ const Routes = (
   <Route path="/" component={App} >
     <Route path="/signup" component={SignUp} />
     <Route path="/login" component={Login} />
-    <Route path="/user" component={Home} />
-    <Route path="/user/newpantry" component={NewPantry} />
+    <Route path="/home" component={Home} />
+    <Route path="/newpantry" component={NewPantry} />
   </Route>
 )
 

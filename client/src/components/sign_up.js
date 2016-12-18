@@ -1,7 +1,7 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signUp } from '../actions/index'
+import { signUp } from '../actions/signin'
 
 class SignUp extends Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class SignUp extends Component {
           <input type="text" placeholder="email" onChange={this.onEmailChange} value={this.state.email}/>
           <label>Password</label>
           <input type="password" placeholder="password" onChange={this.onPasswordChange} value={this.state.password}/>
-          <input type="submit" value="Sign Up"/ >
+          <input type="submit" value="Sign Up" />
         </form>
       </div>
     )

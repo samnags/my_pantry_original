@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { bindActionCreators } from 'redux'
-import { logout } from '../actions/index'
+import { logout } from '../actions/signin'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 

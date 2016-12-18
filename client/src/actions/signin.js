@@ -12,7 +12,7 @@ export function signUp(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'SIGN_UP', payload: response.user})
-      browserHistory.push('/user')
+      browserHistory.push('/newpantry')
     })
   }
 }
@@ -28,7 +28,8 @@ export function login(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'LOG_IN', payload: response.user})
-      browserHistory.push('/user')
+      // dispatch({type: 'FETCH_PANTRIES', payload: response.user})
+      browserHistory.push('/newpantry')
     }).catch((response) => {
       // dispatch({type: 'LOG_IN_ERROR', payload: response.user})
     })
