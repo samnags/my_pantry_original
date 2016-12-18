@@ -19,8 +19,9 @@ class LoggedInHeader extends Component {
   render() {
     return(
       <div>
-        <span><Link to="/">Home</Link></span>
-        <Link to="/" onClick={this.logout}>Log Out</Link>
+        <span><Link to="/home">Home</Link></span>
+        <span><Link to="/newpantry">Add a Pantry</Link></span>
+        <span><Link to="/" onClick={this.logout}>Log Out</Link></span>
       </div>
     )
   }

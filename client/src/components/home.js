@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchPantries } from '../actions/pantry'
 import { Link } from 'react-router'
+import PantryCard from './pantry_card'
 
 class Home extends Component {
   componentWillMount() {
@@ -12,7 +13,7 @@ class Home extends Component {
   render() {
     if(this.props.pantries) {
         var pantries = this.props.pantries.map(pantry => {
-          return <Link to={`/pantries/${pantry.id}`} key={pantry.id}> {pantry.location}</Link>
+          return <PantryCard key={pantry.id} pantry={pantry}/>
         })
       }
 
@@ -34,3 +35,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
+
+// return <Link to={`/pantries/${pantry.id}`} key={pantry.id}> {pantry.location}</Link>

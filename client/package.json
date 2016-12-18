@@ -54,6 +54,7 @@
     "babel-preset-stage-1": "^6.1.18",
     "jquery": "^3.1.1",
     "react": "^15.4.0",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",

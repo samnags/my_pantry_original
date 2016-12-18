@@ -12,7 +12,7 @@ export function signUp(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'SIGN_UP', payload: response.user})
-      browserHistory.push('/newpantry')
+      browserHistory.push('/home')
     })
   }
 }

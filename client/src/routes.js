@@ -5,7 +5,7 @@ import SignUp from './components/sign_up'
 import Login from './components/login'
 import Home from './components/home'
 import NewPantry from './components/new_pantry'
-import Pantry from './components/pantry'
+import Pantry from './components/pantry_card'
 
 const Routes = (
   <Route path="/" component={App} >
@@ -19,3 +19,5 @@ const Routes = (
 
 
 module.exports = Routes
+
+// {/* <IndexRoute component={Home}/> */}
