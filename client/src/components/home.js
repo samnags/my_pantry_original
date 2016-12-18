@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchPantries } from '../actions/pantry'
-import Pantry from './pantry'
+import { Link } from 'react-router'
 
 class Home extends Component {
   componentWillMount() {
@@ -12,7 +12,7 @@ class Home extends Component {
   render() {
     if(this.props.pantries) {
         var pantries = this.props.pantries.map(pantry => {
-          return <Pantry key={pantry.id} location={pantry.location} />
+          return <Link to={`/pantries/${pantry.id}`} key={pantry.id}> {pantry.location}</Link>
         })
       }
 

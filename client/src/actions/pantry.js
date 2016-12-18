@@ -31,3 +31,17 @@ export function fetchPantries() {
     })
   }
 }
+
+export function fetchPantry(id) {
+  return function(dispatch) {
+    $.ajax({
+      url: `http://localhost:3000/pantries/${id}`,
+      type: 'GET',
+      contentType:"application/json; charset=utf-8",
+      datatype: 'json',
+      headers: {authorization: localStorage.getItem('jwt')}
+    }).then((response) => {
+      dispatch({type: 'FETCH_PANTRY', payload: response})
+    })
+  }
+}

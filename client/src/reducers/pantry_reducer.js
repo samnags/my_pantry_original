@@ -5,6 +5,8 @@ export default function pantries(state = [], action) {
       return action.payload
     case 'FETCH_PANTRIES':
       return action.payload
+    case 'FETCH_PANTRY':
+      return action.payload
     default:
       return state;
   }
