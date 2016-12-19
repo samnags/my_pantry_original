@@ -41,7 +41,7 @@ export function fetchPantry(id) {
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
-      dispatch({type: 'FETCH_PANTRY', payload: response})
+      dispatch({type: 'FETCH_PANTRY', payload: response})      
     })
   }
 }

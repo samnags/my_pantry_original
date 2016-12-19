@@ -28,8 +28,8 @@ export function login(formData) {
     }).then((response) => {
       localStorage.setItem('jwt', response.jwt)
       dispatch({type: 'LOG_IN', payload: response.user})
-      // dispatch({type: 'FETCH_PANTRIES', payload: response.user})
-      browserHistory.push('/newpantry')
+      browserHistory.push('/home')
+      dispatch({type: 'FETCH_PANTRIES', payload: response.user})
     }).catch((response) => {
       // dispatch({type: 'LOG_IN_ERROR', payload: response.user})
     })

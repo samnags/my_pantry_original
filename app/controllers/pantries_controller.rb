@@ -16,6 +16,7 @@ class PantriesController < ApplicationController
   end
 
   def show
+    # byebug
     render json: Pantry.find(params[:id])
   end
 
