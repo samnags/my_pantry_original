@@ -21,6 +21,7 @@ class Login extends Component {
   }
 
   handleClick(event) {
+    debugger
     event.preventDefault()
     this.props.login(this.state.credentials)
   }

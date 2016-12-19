@@ -7,6 +7,8 @@ import Home from './components/home'
 import NewPantry from './components/new_pantry'
 // import PantryCard from './components/pantry_card'
 import Pantry from './components/pantry'
+import NewIngredient from './components/new_ingredient'
+
 
 const Routes = (
   <Route path="/" component={App} >
@@ -15,6 +17,7 @@ const Routes = (
     <Route path="/home" component={Home} />
     <Route path="/newpantry" component={NewPantry} />
     <Route path="/pantries/:id" component={Pantry} />
+    <Route path="/add_ingredient" component={NewIngredient} />
   </Route>
 )
 

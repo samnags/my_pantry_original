@@ -1,17 +1,18 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 const Header = () => {
   return (
     <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-        <a href="/home">My Pantry</a>
+          <Link to='/home'>My Pantry</Link>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
-        <NavItem href="/signup">Sign Up</NavItem>
-        <NavItem href="/login">Log In</NavItem>
+        <NavItem><Link to='/signup'>Sign Up</Link></NavItem>
+        <NavItem><Link to='/login'>Log In</Link></NavItem>
       </Nav>
     </Navbar>
   )

@@ -16,7 +16,7 @@ class LoggedInHeader extends Component {
 
   renderPantries() {
     return this.props.pantries.map(pantry => {
-       return <NavItem><Link to={`/pantries/${pantry.id}`}>{pantry.location}</Link></NavItem>
+       return <NavItem key={pantry.id}><Link to={`/pantries/${pantry.id}`} key={pantry.id}>{pantry.location}</Link></NavItem>
     })
   }
 
@@ -31,12 +31,12 @@ class LoggedInHeader extends Component {
       <Navbar className="main">
         <Navbar.Header>
           <Navbar.Brand>
-          <Link to='/home'>My Pantry</Link>
+            <Link to='/home'>My Pantry</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem><Link to='/newpantry'>Add a Pantry</Link></NavItem>
-          <NavItem><Link to='/' onClick={this.logout}>Log Out</Link></NavItem>
+        <NavItem><Link to='/newpantry'>Add a Pantry</Link></NavItem>
+        <NavItem><Link to='/' onClick={this.logout}>Log Out</Link></NavItem>
         </Nav>
       </Navbar>
       <Navbar className="sub">
