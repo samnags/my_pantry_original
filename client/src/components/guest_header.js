@@ -1,13 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
 const Header = () => {
   return (
-    <div>
-      <span><Link to="/">Home</Link></span>
-      <span><Link to="/signup">Sign Up</Link></span>
-      <span><Link to="/login">Log In</Link></span>
-    </div>
+    <Navbar>
+      <Navbar.Header>
+        <Navbar.Brand>
+        <a href="/home">My Pantry</a>
+        </Navbar.Brand>
+      </Navbar.Header>
+      <Nav>
+        <NavItem href="/signup">Sign Up</NavItem>
+        <NavItem href="/login">Log In</NavItem>
+      </Nav>
+    </Navbar>
   )
 }
 

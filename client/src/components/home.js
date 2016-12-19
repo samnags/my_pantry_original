@@ -2,7 +2,6 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchPantries } from '../actions/pantry'
-import { Link } from 'react-router'
 import PantryCard from './pantry_card'
 
 class Home extends Component {

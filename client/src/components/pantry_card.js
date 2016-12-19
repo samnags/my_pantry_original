@@ -17,13 +17,14 @@ class Pantry extends Component {
 
   render() {
     let pantry = this.props.pantry
+    debugger
     return (
       <Col md={4}>
       <div className='card'>
         {/* <img class="card-img-top" src="..." alt="Card image cap" /> */}
-          <div class="card-block">
-            <h4 class="card-title"><Link to={`/pantries/${pantry.id}`} key={pantry.id}>{pantry.location}</Link></h4>
-            <p class="card-text">Some stuff</p>
+          <div className="card-block">
+            <h4 className="card-title"><Link to={`/pantries/${pantry.id}`} key={pantry.id}>{pantry.location}</Link></h4>
+            <p className="card-text">Some stuff</p>
           </div>
 
       </div>

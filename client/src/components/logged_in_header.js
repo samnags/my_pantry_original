@@ -2,7 +2,8 @@ import React, { Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { logout } from '../actions/signin'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
+
 
 class LoggedInHeader extends Component {
   constructor(props) {
@@ -18,11 +19,17 @@ class LoggedInHeader extends Component {
 
   render() {
     return(
-      <div>
-        <span><Link to="/home">Home</Link></span>
-        <span><Link to="/newpantry">Add a Pantry</Link></span>
-        <span><Link to="/" onClick={this.logout}>Log Out</Link></span>
-      </div>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+          <a href="/home">My Pantry</a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <NavItem href="/newpantry">Add a Pantry</NavItem>
+          <NavItem href="/" onClick={this.logout}>Log Out</NavItem>
+        </Nav>
+      </Navbar>
     )
   }
 }
