@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { logout } from '../actions/signin'
 import { connect } from 'react-redux'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { Link } from 'react-router'
 import '../../public/App.css'
 
 
@@ -15,7 +16,7 @@ class LoggedInHeader extends Component {
 
   renderPantries() {
     return this.props.pantries.map(pantry => {
-       return <NavItem href={`/pantries/${pantry.id}`}>{pantry.location}</NavItem>
+       return <NavItem><Link to={`/pantries/${pantry.id}`}>{pantry.location}</Link></NavItem>
     })
   }
 
@@ -30,12 +31,12 @@ class LoggedInHeader extends Component {
       <Navbar className="main">
         <Navbar.Header>
           <Navbar.Brand>
-          <a href="/home">My Pantry</a>
+          <Link to='/home'>My Pantry</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem href="/newpantry">Add a Pantry</NavItem>
-          <NavItem href="/" onClick={this.logout}>Log Out</NavItem>
+          <NavItem><Link to='/newpantry'>Add a Pantry</Link></NavItem>
+          <NavItem><Link to='/' onClick={this.logout}>Log Out</Link></NavItem>
         </Nav>
       </Navbar>
       <Navbar className="sub">
@@ -49,7 +50,7 @@ class LoggedInHeader extends Component {
 }
 
 function mapStateToProps(state) {
-  return {pantries: state.pantry }
+  return {pantries: state.pantry.pantries }
 }
 
 function mapDispatchToProps(dispatch) {

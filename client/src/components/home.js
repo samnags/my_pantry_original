@@ -25,8 +25,8 @@ class Home extends Component {
 
 }
 
-function mapStateToProps(state) {
-  return { pantries: state.pantry }
+function mapStateToProps(state) {  
+  return { pantries: state.pantry.pantries }
 }
 
 function mapDispatchToProps(dispatch) {

@@ -17,8 +17,9 @@ class Pantry extends Component {
   }
 }
 
-function mapStateToProps(state) {   
-  return { pantry: state.pantry}
+function mapStateToProps(state) {
+  // debugger
+  return { pantry: state.pantry.pantry}
 }
 
 function mapDispatchToProps(dispatch) {
