@@ -50,4 +50,3 @@ class PantryingredientsController < ApplicationController
 
 
 end
-# (params[:pantryingredient][:currentPantry]

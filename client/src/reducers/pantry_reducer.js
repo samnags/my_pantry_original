@@ -1,5 +1,5 @@
 
-const initialState = {pantries: [], pantry: [], categories: []}
+const initialState = {pantries: [], pantry: []}
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -9,8 +9,6 @@ export default function (state = initialState, action) {
       return { ...state, pantries: action.payload }
     case 'FETCH_PANTRY':
       return { ...state, pantry: action.payload }
-    case 'GET_CATEGORIES':
-      return { ...state, categories: action.payload }
     case 'LOG_OUT':
       return initialState
     default:

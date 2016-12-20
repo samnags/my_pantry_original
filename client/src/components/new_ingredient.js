@@ -41,10 +41,10 @@ class newIngredient extends Component {
         <h2>Add a Ingredient</h2>
         <form onSubmit={this.onIngredientSubmit}>
           <label>Quantity</label>
-          <input type="number" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
+          <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
           <label>Measurement</label>
             <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
-                <option value="nothing">--</option>                
+                <option value="nothing">--</option>
                 <option value="Cup">Cups</option>
                 <option value="Ounce">Ounces</option>
                 <option value="Liter">Liters</option>
@@ -68,7 +68,7 @@ class newIngredient extends Component {
 }
 
 function mapStateToProps(state) {
-  return { currentPantry: state.pantry.pantry, categories: state.pantry.categories }
+  return { currentPantry: state.pantry.pantry, categories: state.ingredient.categories }
 }
 
 function mapDispatchToProps(dispatch) {
