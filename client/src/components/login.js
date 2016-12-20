@@ -20,8 +20,7 @@ class Login extends Component {
     this.setState({credentials: credentials})
   }
 
-  handleClick(event) {
-    debugger
+  handleClick(event) {    
     event.preventDefault()
     this.props.login(this.state.credentials)
   }

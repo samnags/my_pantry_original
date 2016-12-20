@@ -6,20 +6,23 @@
 # #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 # #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-sam = User.create!({name: "Sam"})
-marissa = User.create!({name: "Marissa"})
+sam = User.create!({name: "Sam", email: 'sam@sam.com', password: 'password' })
+# marissa = User.create!({name: "Marissa"})
+
+ny = Pantry.create!({location: 'NY', user: sam})
+ct = Pantry.create!({location: 'CT', user: sam})
 
 dairy = Category.create!({name: "Dairy"})
 meat = Category.create!({name: "Meat"})
 spices = Category.create!({name: "Spices"})
-
-sampantry = Pantry.create!({user_id: sam.id})
-marissapantry = Pantry.create!({user_id: marissa.id})
+#
+# sampantry = Pantry.create!({user_id: sam.id})
+# marissapantry = Pantry.create!({user_id: marissa.id})
 
 milk = Ingredient.create!({name: "Milk", category_id: dairy.id})
 chicken = Ingredient.create!({name: "Chicken", category_id: meat.id})
 tumeric = Ingredient.create!({name: "Tumeric", category_id: spices.id})
 
-sammilk = PantryIngredient.create({pantry_id: sampantry.id, ingredient_id: milk, quantity: 1, date: Date.today})
-samtumeric = PantryIngredient.create({pantry_id: sampantry.id, ingredient_id: tumeric.id, quantity: 1, date: Date.today})
-samchicken = PantryIngredient.create({pantry_id: sampantry.id, ingredient_id: chicken.id, quantity: 1, date: Date.today})
+# sammilk = PantryIngredient.create({pantry_id: sampantry.id, ingredient_id: milk, quantity: 1, date: Date.today})
+# samtumeric = PantryIngredient.create({pantry_id: sampantry.id, ingredient_id: tumeric.id, quantity: 1, date: Date.today})
+# samchicken = PantryIngredient.create({pantry_id: sampantry.id, ingredient_id: chicken.id, quantity: 1, date: Date.today})
