@@ -29,3 +29,9 @@ export function getCategories() {
     })
   }
 }
+
+export function toggleIngredientForm() {
+  return function(dispatch) {
+    dispatch({type: 'ADD_INGREDIENT_FORM'})
+  }
+}
