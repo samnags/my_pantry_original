@@ -6,7 +6,13 @@ class PantryingredientsController < ApplicationController
     ing.quantity = quantity_params
     ing.measurement_id = measurement_params.id
     ing.ingredient = ingredient_params
-    ing.save    
+
+    if ing.save
+      render json: { pantryIngredient: ing}
+    else
+      render status: 404, json: {error: ing.errors.full_messages}
+    end
+    
   end
 
 
@@ -30,7 +36,10 @@ class PantryingredientsController < ApplicationController
     end
 
     def ingredient_params
-      Ingredient.find_or_create_by(name: params[:pantryingredient][:ingredient])
+      ingredient = Ingredient.find_or_create_by(name: params[:pantryingredient][:ingredient])
+      ingredient.category = Category.find_by(name: params[:pantryingredient][:category])
+      ingredient.save
+      return ingredient
     end
 
 
