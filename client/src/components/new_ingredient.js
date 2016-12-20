@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-// import { addPantry } from '../actions/pantry'
-// import { bindActionCreators } from 'redux'
-// import { connect } from 'react-redux'
+import { addIngredient } from '../actions/ingredient'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-export default class newIngredient extends Component {
+class newIngredient extends Component {
   constructor(props) {
     super(props)
-    this.state = { ingredientInfo: { quantity: '', measurement: '', ingredient: '' } }
+    this.state = { ingredientInfo: { quantity: '', measurement: '--', ingredient: '', currentPantry: this.props.currentPantry.id } }
 
     this.onIngredientChange = this.onIngredientChange.bind(this)
     this.onIngredientSubmit = this.onIngredientSubmit.bind(this)
@@ -16,12 +16,12 @@ export default class newIngredient extends Component {
     const field = event.target.name
     const ingredients = this.state.ingredientInfo
     ingredients[field] = event.target.value
+    ingredients["currentPantry"] = this.props.currentPantry.id
     this.setState({ ingredientInfo:  ingredients })
   }
 
   onIngredientSubmit(event) {
     event.preventDefault()
-    debugger
     this.props.addIngredient(this.state.ingredientInfo)
   }
 
@@ -33,15 +33,15 @@ export default class newIngredient extends Component {
           <label>Quantity</label>
           <input type="number" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
           <label>Measurement</label>
-          <select name="measurement" onChange={this.onIngredientChange}>
-              <option value="nothing" selected="selected">--</option>
-              <option value="cup">Cup</option>
-              <option value="ounce">Ounce</option>
-              <option value="liter">Liter</option>
-              <option value="gram">Gram</option>
-              <option value="ml">Milliliter</option>
-              <option value="teaspoon">Teaspoon</option>
-              <option value="tablespoon">Tablespoon</option>
+          <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
+              <option value="nothing">--</option>
+              <option value="Cup">Cups</option>
+              <option value="Ounce">Ounces</option>
+              <option value="Liter">Liters</option>
+              <option value="Gram">Grams</option>
+              <option value="Milliliter">Milliliters</option>
+              <option value="Teaspoon">Teaspoons</option>
+              <option value="Tablespoon">Tablespoons</option>
           </select>
           <label>Name</label>
           <input type="text" placeholder="Ingredient" name="ingredient" value={this.state.ingredientName} onChange={this.onIngredientChange} />
@@ -51,3 +51,13 @@ export default class newIngredient extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return { currentPantry: state.pantry.pantry }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addIngredient}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(newIngredient)

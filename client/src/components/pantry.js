@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPantry } from '../actions/pantry'
 import { bindActionCreators } from 'redux'
+import NewIngredient from './new_ingredient'
 
 class Pantry extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class Pantry extends Component {
     return(
       <div>
         Hi, I'm Pantry #{this.props.pantry.id}
+        <NewIngredient />
       </div>
     )
   }

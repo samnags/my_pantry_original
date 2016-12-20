@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router'
-// import { connect } from 'react-redux'
-// import { fetchPantry } from '../actions/pantry'
-// import { bindActionCreators } from 'redux'
 import '../../public/App.css'
 import { Col } from 'react-bootstrap';
-
 
 const PantryCard = (props) => {
     let pantry = props.pantry
