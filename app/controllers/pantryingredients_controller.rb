@@ -8,11 +8,17 @@ class PantryingredientsController < ApplicationController
     ing.ingredient = ingredient_params
 
     if ing.save
-      render json: { pantryIngredient: ing}
+      render json:
+      {
+        ingredient: ing.ingredient.name,
+        quantity: ing.quantity,
+        measurement: Measurement.find(ing.measurement_id).name,
+        category: ing.ingredient.category.name
+      }
     else
       render status: 404, json: {error: ing.errors.full_messages}
     end
-    
+
   end
 
 
