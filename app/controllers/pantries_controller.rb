@@ -16,8 +16,13 @@ class PantriesController < ApplicationController
   end
 
   def show
-    # byebug
     render json: Pantry.find(params[:id])
+  end
+
+  def pantry_ingredients
+    pantry = Pantry.find(params[:id])
+    pi = pantry.ingredients
+    render json: { ingredients: pi}
   end
 
   private

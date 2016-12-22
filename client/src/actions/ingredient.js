@@ -35,3 +35,17 @@ export function toggleIngredientForm() {
     dispatch({type: 'ADD_INGREDIENT_FORM'})
   }
 }
+
+export function fetchPantryIngredients(id) {
+  return function(dispatch) {
+    $.ajax({
+      url: `http://localhost:3000/pantries/${id}/ingredients`,
+      type: 'GET',
+      contentType:"application/json; charset=utf-8",
+      datatype: 'json',
+      headers: {authorization: localStorage.getItem('jwt')}
+    }).then((response) => {
+      console.log(response)
+    })
+  }
+}

@@ -18,8 +18,11 @@ class PantryingredientsController < ApplicationController
     else
       render status: 404, json: {error: ing.errors.full_messages}
     end
-
-  end
+  # end
+  #
+  # def show
+  #   byebug
+  # end
 
 
   private

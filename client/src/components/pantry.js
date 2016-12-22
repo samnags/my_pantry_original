@@ -4,6 +4,7 @@ import { fetchPantry } from '../actions/pantry'
 import { toggleIngredientForm } from '../actions/ingredient'
 import { bindActionCreators } from 'redux'
 import NewIngredient from './new_ingredient'
+import IngredientTable from './ingredient_table'
 
 class Pantry extends Component {
   componentDidMount() {
@@ -16,9 +17,10 @@ class Pantry extends Component {
 
   render() {
     return(
-      <div>        
+      <div>
         <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
         { this.props.addIngredientForm ? <NewIngredient /> : null }
+        <IngredientTable id={this.props.params.id} />
       </div>
     )
   }
