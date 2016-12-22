@@ -44,8 +44,8 @@ export function fetchPantryIngredients(id) {
       contentType:"application/json; charset=utf-8",
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
-    }).then((response) => {
-      console.log(response)
+    }).then((response) => {      
+      dispatch({type: 'FETCH_PANTRY_INGREDIENTS', payload: response})
     })
   }
 }

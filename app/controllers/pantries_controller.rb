@@ -21,8 +21,8 @@ class PantriesController < ApplicationController
 
   def pantry_ingredients
     pantry = Pantry.find(params[:id])
-    pi = pantry.ingredients
-    render json: { ingredients: pi}
+    pi = pantry.ingredients    
+    render json: pi
   end
 
   private

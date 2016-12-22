@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { logout } from '../actions/signin'
 import { connect } from 'react-redux'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router'
 import '../../public/App.css'
 
@@ -15,8 +16,12 @@ class LoggedInHeader extends Component {
   }
 
   renderPantries() {
-    return this.props.pantries.map(pantry => {
-       return <NavItem key={pantry.id}><Link to={`/pantries/${pantry.id}`} key={pantry.id}>{pantry.location}</Link></NavItem>
+    return this.props.pantries.map((pantry) => {
+      return(
+        <LinkContainer key={pantry.id} to={`/pantries/${pantry.id}`}>
+         <NavItem>{pantry.location}</NavItem>
+        </LinkContainer>
+      )
     })
   }
 
@@ -35,10 +40,15 @@ class LoggedInHeader extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-        <NavItem><Link to='/newpantry'>Add a Pantry</Link></NavItem>
-        <NavItem><Link to='/' onClick={this.logout}>Log Out</Link></NavItem>
+          <LinkContainer to='/newpantry'>
+            <NavItem>Add a Pantry</NavItem>
+          </LinkContainer>
+          <IndexLinkContainer to='/'>
+            <NavItem onClick={this.logout}>Log Out</NavItem>
+          </IndexLinkContainer>
         </Nav>
       </Navbar>
+
       <Navbar className="sub">
         <Nav>
           {this.renderPantries()}

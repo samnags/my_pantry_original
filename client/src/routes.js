@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 import App from './containers/app';
 import SignUp from './components/sign_up'
 import Login from './components/login'
@@ -12,6 +12,7 @@ import NewIngredient from './components/new_ingredient'
 
 const Routes = (
   <Route path="/" component={App} >
+    <IndexRoute component={Home}/>
     <Route path="/signup" component={SignUp} />
     <Route path="/login" component={Login} />
     <Route path="/home" component={Home} />
@@ -23,5 +24,3 @@ const Routes = (
 
 
 module.exports = Routes
-
-// {/* <IndexRoute component={Home}/> */}
