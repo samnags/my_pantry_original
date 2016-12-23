@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 
 export function addIngredient(formData) {
   return function(dispatch) {
@@ -44,7 +44,8 @@ export function fetchPantryIngredients(id) {
       contentType:"application/json; charset=utf-8",
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
-    }).then((response) => {      
+    }).then((response) => {
+      console.log(response)
       dispatch({type: 'FETCH_PANTRY_INGREDIENTS', payload: response})
     })
   }

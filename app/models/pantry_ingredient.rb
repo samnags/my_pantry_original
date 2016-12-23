@@ -15,5 +15,6 @@
 class PantryIngredient < ActiveRecord::Base
   belongs_to :ingredient
   belongs_to :pantry
-  # has_one :measurement
+  belongs_to :measurement
+  has_one :category, through: :ingredient
 end

@@ -9,5 +9,5 @@
 #
 
 class Measurement < ActiveRecord::Base
-  # belongs_to :PantryIngredient
+  has_many :pantry_ingredients
 end

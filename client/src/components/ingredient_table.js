@@ -51,5 +51,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IngredientTable)
-
-// category={ingredient.category.name ? ingredient.category.name : 'None' }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const IngredientTableRow = (props) => {
-  debugger
+  // debugger
   return (
     <tr>
       <td>
