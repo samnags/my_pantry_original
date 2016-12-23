@@ -5,10 +5,12 @@ import { toggleIngredientForm } from '../actions/ingredient'
 import { bindActionCreators } from 'redux'
 import NewIngredient from './new_ingredient'
 import IngredientTable from './ingredient_table'
+import { fetchPantryIngredients } from '../actions/ingredient'
 
 class Pantry extends Component {
   componentDidMount() {
     this.props.fetchPantry(this.props.params.id)
+    this.props.fetchPantryIngredients(this.props.params.id)
   }
 
   handleClick() {
@@ -31,7 +33,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPantry, toggleIngredientForm}, dispatch)
+  return bindActionCreators({ fetchPantry, toggleIngredientForm, fetchPantryIngredients}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pantry)

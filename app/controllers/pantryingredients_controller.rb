@@ -6,7 +6,7 @@ class PantryingredientsController < ApplicationController
     ing.quantity = quantity_params
     ing.measurement_id = measurement_params.id
     ing.ingredient = ingredient_params
-
+    
     if ing.save
       render json:
       {
@@ -18,11 +18,7 @@ class PantryingredientsController < ApplicationController
     else
       render status: 404, json: {error: ing.errors.full_messages}
     end
-  # end
-  #
-  # def show
-  #   byebug
-  # end
+  end
 
 
   private

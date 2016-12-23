@@ -1,17 +1,19 @@
 import React from 'react'
 
 const IngredientTableRow = (props) => {
-  // debugger
   return (
     <tr>
       <td>
-        {props.quantity ? props.quantity : "None"}
+        {props.quantity}
+      </td>
+      <td>
+        {props.measurement}
       </td>
       <td>
         {props.name}
       </td>
       <td>
-        {props.category ? props.category : 'None'}
+        {props.category}
       </td>
     </tr>
   )

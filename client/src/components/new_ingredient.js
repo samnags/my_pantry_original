@@ -25,7 +25,7 @@ class newIngredient extends Component {
   }
 
   onIngredientSubmit(event) {
-    event.preventDefault()
+    event.preventDefault()    
     this.props.addIngredient(this.state.ingredientInfo)
   }
 

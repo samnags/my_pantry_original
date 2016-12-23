@@ -7,12 +7,18 @@ import IngredientTableRow from './ingredient_table_row'
 
 class IngredientTable extends Component {
   componentDidMount() {
-    this.props.fetchPantryIngredients(this.props.id)
+    // this.props.fetchPantryIngredients(this.props.id)
   }
 
   renderTableRows() {
     return this.props.ingredients.map((ingredient) => {
-        return <IngredientTableRow name={ingredient.name}  />
+        return <IngredientTableRow
+          key={ingredient.created_at}
+          name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
+          quantity={ingredient.quantity ? ingredient.quantity : 'None'}
+          measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
+          category={ingredient.category ? ingredient.category.name : 'None'}
+          />
     })
   }
 
@@ -24,6 +30,9 @@ class IngredientTable extends Component {
           <tr>
             <th>
               Quantity
+            </th>
+            <th>
+              Measurement
             </th>
             <th>
               Ingredient
@@ -46,8 +55,10 @@ function mapStateToProps(state) {
   return { ingredients: state.ingredient.ingredients }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPantryIngredients}, dispatch)
-}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators({ fetchPantryIngredients}, dispatch)
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(IngredientTable)
+export default connect(mapStateToProps)(IngredientTable)
+
+// {this.props.ingredients > 0 ? this.renderTableRows() : <tr><td colSpan="4 ">Add an Item</td></tr>}
