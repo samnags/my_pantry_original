@@ -25,7 +25,7 @@ class newIngredient extends Component {
   }
 
   onIngredientSubmit(event) {
-    event.preventDefault()    
+    event.preventDefault()
     this.props.addIngredient(this.state.ingredientInfo)
   }
 
@@ -67,8 +67,8 @@ class newIngredient extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { currentPantry: state.pantry.pantry, categories: state.ingredient.categories }
+function mapStateToProps(state) {  
+  return { currentPantry: state.pantry.currentPantry, categories: state.ingredient.categories }
 }
 
 function mapDispatchToProps(dispatch) {

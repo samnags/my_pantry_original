@@ -19,8 +19,6 @@ export function addPantry(formData) {
 
 export function fetchPantries() {
   return function(dispatch) {
-    // dispatch({type: 'CLEAR_CURRENT_PANTRY'})
-    // dispatch({type: 'CLEAR_PANTRY_INGREDIENTS'})
     $.ajax({
       url: `http://localhost:3000/pantries/`,
       type: 'GET',
@@ -29,7 +27,6 @@ export function fetchPantries() {
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
       dispatch({type: 'FETCH_PANTRIES', payload: response })
-      // browserHistory.push('/home')
     })
   }
 }
@@ -43,7 +40,7 @@ export function fetchPantry(id) {
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
-      dispatch({type: 'FETCH_PANTRY', payload: response})
+      dispatch({type: 'FETCH_PANTRY', payload: response})      
     })
   }
 }

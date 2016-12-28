@@ -37,8 +37,7 @@ export function toggleIngredientForm() {
 }
 
 export function fetchPantryIngredients(id) {
-  return function(dispatch) {
-    // dispatch({type: 'CLEAR_PANTRY_INGREDIENTS'})
+  return function(dispatch) {    
     $.ajax({
       url: `http://localhost:3000/pantries/${id}/ingredients`,
       type: 'GET',
@@ -46,7 +45,6 @@ export function fetchPantryIngredients(id) {
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
-      console.log(response)
       dispatch({type: 'FETCH_PANTRY_INGREDIENTS', payload: response})
     })
   }

@@ -9,8 +9,8 @@ export default function (state = initialState, action) {
       return { ...state, pantries: action.payload }
     case 'FETCH_PANTRY':
       return { ...state, currentPantry: action.payload }
-    case 'CLEAR_CURRENT_PANTRY':
-      return { ...state, currentPantry: [] }
+    // case 'CLEAR_CURRENT_PANTRY':
+    //   return { ...state, currentPantry: [] }
     case 'LOG_OUT':
       return initialState
     default:

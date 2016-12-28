@@ -30,9 +30,8 @@ class Pantry extends Component {
     )
   }
 }
-// 
+//
 function mapStateToProps(state) {
-  // debugger
   return { ingredients: state.ingredient.ingredients, addIngredientForm: state.ingredient.addIngredientForm }
 }
 

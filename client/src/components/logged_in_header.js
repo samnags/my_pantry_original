@@ -13,7 +13,12 @@ class LoggedInHeader extends Component {
     super(props)
 
     this.logout = this.logout.bind(this)
+    // this.handleClick = this.handleClick.bind(this)
   }
+
+  // handleClick() {
+  //   debugger
+  // }
 
   componentWillMount() {
     this.props.fetchPantries()
@@ -72,3 +77,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoggedInHeader)
+{/* <NavItem>{pantry.location}</NavItem> */}
