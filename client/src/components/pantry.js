@@ -22,14 +22,17 @@ class Pantry extends Component {
       <div>
         <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
         { this.props.addIngredientForm ? <NewIngredient /> : null }
-        <IngredientTable id={this.props.params.id} />
+        <IngredientTable
+          id={this.props.params.id}
+          ingredients={this.props.ingredients}
+        />
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return { pantry: state.pantry.pantry, addIngredientForm: state.ingredient.addIngredientForm }
+  return { ingredients: state.ingredient.ingredients, addIngredientForm: state.ingredient.addIngredientForm }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -37,3 +40,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pantry)
+
+// return { currentPantry: state.pantry.currentPantry, addIngredientForm: state.ingredient.addIngredientForm }

@@ -2,7 +2,6 @@ import $ from 'jquery'
 // import { browserHistory } from 'react-router'
 
 export function addIngredient(formData) {
-  debugger
   return function(dispatch) {
     $.ajax({
       url: 'http://localhost:3000/pantryingredients',
@@ -39,6 +38,7 @@ export function toggleIngredientForm() {
 
 export function fetchPantryIngredients(id) {
   return function(dispatch) {
+    dispatch({type: 'CLEAR_PANTRY_INGREDIENTS'})
     $.ajax({
       url: `http://localhost:3000/pantries/${id}/ingredients`,
       type: 'GET',

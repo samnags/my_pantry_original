@@ -19,6 +19,8 @@ export function addPantry(formData) {
 
 export function fetchPantries() {
   return function(dispatch) {
+    dispatch({type: 'CLEAR_CURRENT_PANTRY'})
+    dispatch({type: 'CLEAR_PANTRY_INGREDIENTS'})
     $.ajax({
       url: `http://localhost:3000/pantries/`,
       type: 'GET',
