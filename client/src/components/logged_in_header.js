@@ -1,18 +1,22 @@
 import React, { Component} from 'react'
 import { bindActionCreators } from 'redux'
 import { logout } from '../actions/signin'
+import { fetchPantries } from '../actions/pantry'
 import { connect } from 'react-redux'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
 import { Link } from 'react-router'
 import '../../public/App.css'
 
-
 class LoggedInHeader extends Component {
   constructor(props) {
     super(props)
 
     this.logout = this.logout.bind(this)
+  }
+
+  componentWillMount() {
+    this.props.fetchPantries()
   }
 
   renderPantries() {
@@ -64,7 +68,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ logout }, dispatch)
+  return bindActionCreators({ fetchPantries, logout }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoggedInHeader)

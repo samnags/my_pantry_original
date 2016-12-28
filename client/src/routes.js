@@ -11,8 +11,7 @@ import NewIngredient from './components/new_ingredient'
 
 
 const Routes = (
-  <Route path="/" component={App} >
-    <IndexRoute component={Home}/>
+  <Route path="/" component={App}>
     <Route path="/signup" component={SignUp} />
     <Route path="/login" component={Login} />
     <Route path="/home" component={Home} />
@@ -21,6 +20,5 @@ const Routes = (
     <Route path="/add_ingredient" component={NewIngredient} />
   </Route>
 )
-
 
 module.exports = Routes
