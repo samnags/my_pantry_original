@@ -82,9 +82,4 @@ function mapStateToProps(state) {
   return {pantries: state.pantry.pantries }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPantries, logout }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInHeader)
-{/* <NavItem>{pantry.location}</NavItem> */}
+export default connect(mapStateToProps, { fetchPantries, logout })(LoggedInHeader)
