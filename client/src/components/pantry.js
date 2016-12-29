@@ -17,6 +17,11 @@ class Pantry extends Component {
     this.props.toggleIngredientForm()
   }
 
+  componentWillReceiveProps() {
+    // debugger
+    this.props.fetchPantryIngredients(this.props.params.id)
+  }
+
   render() {
     return(
       <div>

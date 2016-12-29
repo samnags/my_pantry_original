@@ -12,16 +12,26 @@ class LoggedInHeader extends Component {
   constructor(props) {
     super(props)
 
-    this.logout = this.logout.bind(this)
     // this.handleClick = this.handleClick.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
   // handleClick() {
-  //   debugger
+  //   this.forceUpdate()
   // }
 
   componentWillMount() {
     this.props.fetchPantries()
+  }
+
+  renderPantries() {
+    return this.props.pantries.map((pantry) => {
+      return(
+        <LinkContainer  key={pantry.id} to={`/pantries/${pantry.id}`}>
+         <NavItem >{pantry.location}</NavItem>
+        // </LinkContainer>
+      )
+    })
   }
 
   renderPantries() {

@@ -27,6 +27,7 @@ export function fetchPantries() {
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
       dispatch({type: 'FETCH_PANTRIES', payload: response })
+      dispatch({type: 'CLEAR_CURRENT_PANTRY' })
     })
   }
 }
@@ -40,7 +41,7 @@ export function fetchPantry(id) {
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
-      dispatch({type: 'FETCH_PANTRY', payload: response})      
+      dispatch({type: 'FETCH_PANTRY', payload: response})
     })
   }
 }
