@@ -16,9 +16,11 @@ const IngredientTable = (props) => {
     })
 
     return (
+
       <Col xs={6} md={4}>
+
       <Table bordered condensed responsive={true} >
-        <thead>
+        <thead>        
           <tr>
             <th>
               Quantity

@@ -38,13 +38,14 @@ class Pantry extends Component {
 }
 //
 function mapStateToProps(state) {
-  return { ingredients: state.ingredient.ingredients, addIngredientForm: state.ingredient.addIngredientForm }
+  return {
+    ingredients: state.ingredient.ingredients,
+    addIngredientForm: state.ingredient.addIngredientForm,
+    // currentPantry: state.pantry.currentPantry
+  }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPantry, toggleIngredientForm, fetchPantryIngredients}, dispatch)
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Pantry)
+export default connect(mapStateToProps, { fetchPantry, toggleIngredientForm, fetchPantryIngredients})(Pantry)
 
 // return { currentPantry: state.pantry.currentPantry, addIngredientForm: state.ingredient.addIngredientForm }
