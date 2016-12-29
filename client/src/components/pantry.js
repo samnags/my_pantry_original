@@ -19,13 +19,16 @@ class Pantry extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
-      this.props.fetchPantryIngredients(this.props.params.id)
+      this.props.fetchPantry(nextProps.params.id)
+      this.props.fetchPantryIngredients(nextProps.params.id)
     }
   }
 
   render() {
+    // debugger
     return(
       <div>
+        {this.props.currentPantry.location}
         <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
         { this.props.addIngredientForm ? <NewIngredient /> : null }
         <IngredientTable
@@ -41,7 +44,7 @@ function mapStateToProps(state) {
   return {
     ingredients: state.ingredient.ingredients,
     addIngredientForm: state.ingredient.addIngredientForm,
-    // currentPantry: state.pantry.currentPantry
+    currentPantry: state.pantry.currentPantry
   }
 }
 

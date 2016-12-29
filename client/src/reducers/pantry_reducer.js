@@ -8,6 +8,7 @@ export default function (state = initialState, action) {
     case 'FETCH_PANTRIES':
       return { ...state, pantries: action.payload }
     case 'FETCH_PANTRY':
+      // debugger    
       return { ...state, currentPantry: action.payload }
     case 'CLEAR_CURRENT_PANTRY':
       return { ...state, currentPantry: [] }
