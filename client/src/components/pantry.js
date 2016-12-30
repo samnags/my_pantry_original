@@ -25,13 +25,13 @@ class Pantry extends Component {
 
   render() {
     return(
-      <div>
-        {this.props.currentPantry.location}
+      <div>        
         <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
         { this.props.addIngredientForm ? <NewIngredient /> : null }
         <IngredientTable
           id={this.props.params.id}
           ingredients={this.props.ingredients}
+          location={this.props.currentPantry.location}
         />
       </div>
     )
@@ -48,5 +48,3 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps, { fetchPantry, toggleIngredientForm, fetchPantryIngredients})(Pantry)
-
-// return { currentPantry: state.pantry.currentPantry, addIngredientForm: state.ingredient.addIngredientForm }

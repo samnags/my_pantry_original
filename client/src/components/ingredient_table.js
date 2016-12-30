@@ -7,16 +7,17 @@ import IngredientTableRow from './ingredient_table_row'
 const IngredientTable = (props) => {
   var tableRows = props.ingredients.map((ingredient) => {
         return <IngredientTableRow
-          key={ingredient.created_at ? ingredient.created_at : 'None' }
-          name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
-          quantity={ingredient.quantity ? ingredient.quantity : 'None'}
-          measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
-          category={ingredient.category ? ingredient.category.name : 'None'}
+          key={ingredient.created_at}
+          name={ingredient.ingredient.name}
+          quantity={ingredient.quantity}
+          measurement={ingredient.measurement.name}
+          category={ingredient.category.name}
           />
     })
 
     return (
       <Col xs={6} md={4}>
+      {props.location}
       <Table bordered condensed responsive={true} >
         <thead>
           <tr>
@@ -44,6 +45,15 @@ const IngredientTable = (props) => {
 //
 module.exports = IngredientTable
 
+// var tableRows = props.ingredients.map((ingredient) => {
+//       return <IngredientTableRow
+//         key={ingredient.created_at ? ingredient.created_at : 'None' }
+//         name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
+//         quantity={ingredient.quantity ? ingredient.quantity : 'None'}
+//         measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
+//         category={ingredient.category ? ingredient.category.name : 'None'}
+//         />
+//   })
 
 // class IngredientTable extends Component {
 //   componentWillMount() {
