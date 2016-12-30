@@ -1,24 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Col, Table } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
 // import { connect } from 'react-redux'
 import { fetchPantryIngredients } from '../actions/ingredient'
 
 const IngredientTable = (props) => {
-  // var tableRows = props.ingredients.map((ingredient) => {
-  //       return <IngredientTableRow
-  //         key={ingredient.created_at}
-  //         name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
-  //         quantity={ingredient.quantity ? ingredient.quantity : 'None'}
-  //         measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
-  //         category={ingredient.category ? ingredient.category.name : 'None'}
-  //         />
-  //   })
+  var tableRows = props.ingredients.map((ingredient) => {
+        return <IngredientTableRow
+          key={ingredient.created_at}
+          name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
+          quantity={ingredient.quantity ? ingredient.quantity : 'None'}
+          measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
+          category={ingredient.category ? ingredient.category.name : 'None'}
+          />
+    })
 
     return (
 
       <Col xs={6} md={4}>
-
       <Table bordered condensed responsive={true} >
         <thead>
           <tr>

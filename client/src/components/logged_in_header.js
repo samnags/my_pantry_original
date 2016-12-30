@@ -1,5 +1,4 @@
 import React, { Component} from 'react'
-import { bindActionCreators } from 'redux'
 import { logout } from '../actions/signin'
 import { fetchPantries } from '../actions/pantry'
 import { connect } from 'react-redux'
@@ -17,16 +16,6 @@ class LoggedInHeader extends Component {
 
   componentWillMount() {
     this.props.fetchPantries()
-  }
-
-  renderPantries() {
-    return this.props.pantries.map((pantry) => {
-      return(
-        <LinkContainer  key={pantry.id} to={`/pantries/${pantry.id}`}>
-         <NavItem >{pantry.location}</NavItem>
-        // </LinkContainer>
-      )
-    })
   }
 
   renderPantries() {

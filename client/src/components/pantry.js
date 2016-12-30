@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPantry } from '../actions/pantry'
 import { toggleIngredientForm } from '../actions/ingredient'
-import { bindActionCreators } from 'redux'
 import NewIngredient from './new_ingredient'
 import IngredientTable from './ingredient_table'
 import { fetchPantryIngredients } from '../actions/ingredient'
@@ -24,7 +23,7 @@ class Pantry extends Component {
     }
   }
 
-  render() {    
+  render() {
     return(
       <div>
         {this.props.currentPantry.location}
