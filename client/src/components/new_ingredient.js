@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { addIngredient, getCategories } from '../actions/ingredient'
-import { bindActionCreators } from 'redux'
+import { addIngredient, getCategories, getMeasurements } from '../actions/ingredient'
 import { connect } from 'react-redux'
 
 class newIngredient extends Component {
@@ -14,6 +13,7 @@ class newIngredient extends Component {
 
   componentDidMount() {
     this.props.getCategories()
+    this.props.getMeasurements()
   }
 
   onIngredientChange(event) {
@@ -35,6 +35,12 @@ class newIngredient extends Component {
     })
   }
 
+  renderMeasurements() {
+    return this.props.measurements.map((measurement) => {      
+      return <option key={measurement.id} value={measurement.name}>{measurement.name}</option>
+    })
+  }
+
   render() {
     return(
       <div>
@@ -44,15 +50,7 @@ class newIngredient extends Component {
           <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
           <label>Measurement</label>
             <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
-                <option value="nothing">--</option>
-                <option value="Cup">Cups</option>
-                <option value="Ounce">Ounces</option>
-                <option value="Liter">Liters</option>
-                <option value="Gram">Grams</option>
-                <option value="Milliliter">Milliliters</option>
-                <option value="Pound">Pound</option>
-                <option value="Teaspoon">Teaspoons</option>
-                <option value="Tablespoon">Tablespoons</option>
+              {this.renderMeasurements()}
             </select>
           <label>Name</label>
           <input type="text" placeholder="Ingredient" name="ingredient" value={this.state.ingredientName} onChange={this.onIngredientChange} />
@@ -67,12 +65,12 @@ class newIngredient extends Component {
   }
 }
 
-function mapStateToProps(state) {  
-  return { currentPantry: state.pantry.currentPantry, categories: state.ingredient.categories }
+function mapStateToProps(state) {
+  return {
+    currentPantry: state.pantry.currentPantry,
+    categories: state.ingredient.categories,
+    measurements: state.ingredient.measurements
+  }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addIngredient, getCategories }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(newIngredient)
+export default connect(mapStateToProps, { addIngredient, getCategories, getMeasurements })(newIngredient)

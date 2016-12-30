@@ -1,7 +1,7 @@
 import $ from 'jquery'
 // import { browserHistory } from 'react-router'
 
-export function addIngredient(formData) {
+export function addIngredient(formData) {  
   return function(dispatch) {
     $.ajax({
       url: 'http://localhost:3000/pantryingredients',
@@ -30,6 +30,21 @@ export function getCategories() {
   }
 }
 
+export function getMeasurements() {
+  return function(dispatch) {
+    $.ajax({
+      url: 'http://localhost:3000/measurements',
+      type: 'GET',
+      contentType:"application/json; charset=utf-8",
+      datatype: 'json',
+      headers: {authorization: localStorage.getItem('jwt')}
+    }).then((response) => {
+      dispatch({type: 'GET_MEASUREMENTS', payload: response.measurements })
+    })
+  }
+}
+
+
 export function toggleIngredientForm() {
   return function(dispatch) {
     dispatch({type: 'ADD_INGREDIENT_FORM'})
@@ -37,7 +52,7 @@ export function toggleIngredientForm() {
 }
 
 export function fetchPantryIngredients(id) {
-  return function(dispatch) {    
+  return function(dispatch) {
     $.ajax({
       url: `http://localhost:3000/pantries/${id}/ingredients`,
       type: 'GET',

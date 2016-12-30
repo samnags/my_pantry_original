@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :pantries, only: [:index, :create, :show]
   resources :pantryingredients, only: [:create, :show]
   resources :categories, only: [:index]
+  resources :measurements, only: [:index]
 end

@@ -12,13 +12,8 @@ class LoggedInHeader extends Component {
   constructor(props) {
     super(props)
 
-    // this.handleClick = this.handleClick.bind(this)
     this.logout = this.logout.bind(this)
   }
-
-  // handleClick() {
-  //   this.forceUpdate()
-  // }
 
   componentWillMount() {
     this.props.fetchPantries()
@@ -50,6 +45,10 @@ class LoggedInHeader extends Component {
   }
 
   render() {
+    if (!this.props.pantries > 0) {
+      return <div>Loading..</div>
+    }
+
     return(
       <div>
       <Navbar className="main">

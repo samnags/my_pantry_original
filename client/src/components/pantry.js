@@ -24,8 +24,7 @@ class Pantry extends Component {
     }
   }
 
-  render() {
-    // debugger
+  render() {    
     return(
       <div>
         {this.props.currentPantry.location}

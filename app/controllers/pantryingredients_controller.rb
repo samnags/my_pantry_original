@@ -2,11 +2,12 @@ class PantryingredientsController < ApplicationController
 
   def create
     ing = PantryIngredient.new
+    byebug
     ing.pantry = current_pantry
     ing.quantity = quantity_params
     ing.measurement_id = measurement_params.id
     ing.ingredient = ingredient_params
-    
+
     if ing.save
       render json:
       {
