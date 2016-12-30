@@ -2,12 +2,12 @@ import React from 'react'
 import { Col, Table } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
 // import { connect } from 'react-redux'
-import { fetchPantryIngredients } from '../actions/ingredient'
+// import { fetchPantryIngredients } from '../actions/ingredient'
 
 const IngredientTable = (props) => {
   var tableRows = props.ingredients.map((ingredient) => {
         return <IngredientTableRow
-          key={ingredient.created_at}
+          key={ingredient.created_at ? ingredient.created_at : 'None' }
           name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
           quantity={ingredient.quantity ? ingredient.quantity : 'None'}
           measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
@@ -16,7 +16,6 @@ const IngredientTable = (props) => {
     })
 
     return (
-
       <Col xs={6} md={4}>
       <Table bordered condensed responsive={true} >
         <thead>
@@ -36,7 +35,7 @@ const IngredientTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {/* {tableRows} */}
+          {tableRows}
         </tbody>
       </Table>
       </Col>

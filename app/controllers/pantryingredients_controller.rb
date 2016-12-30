@@ -1,8 +1,7 @@
 class PantryingredientsController < ApplicationController
 
   def create
-    ing = PantryIngredient.new
-    byebug
+    ing = PantryIngredient.new    
     ing.pantry = current_pantry
     ing.quantity = quantity_params
     ing.measurement_id = measurement_params.id
