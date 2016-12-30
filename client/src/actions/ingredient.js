@@ -3,6 +3,7 @@ import $ from 'jquery'
 
 export function addIngredient(formData) {
   return function(dispatch) {
+    dispatch({type: 'ADDING_INGREDIENT'})
     $.ajax({
       url: 'http://localhost:3000/pantryingredients',
       type: 'POST',
@@ -12,7 +13,7 @@ export function addIngredient(formData) {
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
       dispatch({type: 'ADD_INGREDIENT', payload: response})
-      dispatch({type: 'ADD_INGREDIENT_FORM'})      
+      dispatch({type: 'ADD_INGREDIENT_FORM'})
     })
   }
 }

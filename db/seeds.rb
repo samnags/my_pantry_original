@@ -21,6 +21,7 @@ herbs = Category.create!({name: "Herbs"})
 frozen = Category.create!({name: "Frozen"})
 vegetables = Category.create!({name: "Vegetables"})
 fruits = Category.create!({name: "Fruits"})
+condiments = Category.create!(name: "Condiment")
 
 tb = Measurement.create!({name: "Tablespoon"})
 ts = Measurement.create!({name: "Teaspoon"})

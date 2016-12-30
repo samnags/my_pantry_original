@@ -1,8 +1,7 @@
 
-const initialState = { addIngredientForm: false, categories: [], ingredients: [], measurements: []}
+const initialState = { addIngredientForm: false, addingIngredient: false, categories: [], ingredients: [], measurements: []}
 
 export default function ingredientReducer(state = initialState, action) {
-  // debugger
   switch (action.type) {
     case 'ADD_INGREDIENT_FORM':
       return {...state, addIngredientForm: !state.addIngredientForm}
@@ -12,11 +11,15 @@ export default function ingredientReducer(state = initialState, action) {
       return { ...state, measurements: action.payload }
     case 'FETCH_PANTRY_INGREDIENTS':
       return { ...state, ingredients: action.payload }
+    case 'ADDING_INGREDIENT':
+      return { ...state, addingIngredient: !state.addingIngredient}
     // case 'CLEAR_PANTRY_INGREDIENTS':
     //   return { ...state, ingredients: [] }
     case 'ADD_INGREDIENT':
-      return {...state, ingredients: [...state.ingredients, action.payload]}
+      return {...state, addingIngredient: !state.addingIngredient}
     default:
       return state
   }
 }
+
+// return {...state, addingIngredient: !!addingIngredient, ingredients: [...state.ingredients, action.payload]}

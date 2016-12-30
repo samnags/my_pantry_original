@@ -7,7 +7,7 @@ class PantryingredientsController < ApplicationController
     ing.measurement_id = measurement_params.id
     ing.ingredient = ingredient_params
 
-    if ing.save      
+    if ing.save
       render json:
       {
         ingredient: ing.ingredient.name,
@@ -20,6 +20,8 @@ class PantryingredientsController < ApplicationController
       render status: 404, json: {error: ing.errors.full_messages}
     end
   end
+  # render json: ing.includes(:ingredient, :category, :measurement), include: [:ingredient, :category, :measurement]
+  # render json: pi.includes(:ingredient, :category, :measurement), include: [:ingredient, :category, :measurement]
 
 
   private
