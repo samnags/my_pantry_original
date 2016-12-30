@@ -1,8 +1,6 @@
 import React from 'react'
 import { Col, Table } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
-// import { connect } from 'react-redux'
-// import { fetchPantryIngredients } from '../actions/ingredient'
 
 const IngredientTable = (props) => {
   var tableRows = props.ingredients.map((ingredient) => {

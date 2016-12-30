@@ -1,7 +1,7 @@
 class PantryingredientsController < ApplicationController
 
   def create
-    ing = PantryIngredient.new    
+    ing = PantryIngredient.new
     ing.pantry = current_pantry
     ing.quantity = quantity_params
     ing.measurement_id = measurement_params.id
@@ -13,7 +13,8 @@ class PantryingredientsController < ApplicationController
         ingredient: ing.ingredient.name,
         quantity: ing.quantity,
         measurement: Measurement.find(ing.measurement_id).name,
-        category: ing.ingredient.category.name
+        category: ing.ingredient.category.name,
+        currentpantry: ing.pantry
       }
     else
       render status: 404, json: {error: ing.errors.full_messages}

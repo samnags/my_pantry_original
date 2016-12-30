@@ -24,8 +24,9 @@ class Pantry extends Component {
   }
 
   render() {
+    // debugger
     return(
-      <div>        
+      <div>
         <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
         { this.props.addIngredientForm ? <NewIngredient /> : null }
         <IngredientTable

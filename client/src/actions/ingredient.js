@@ -1,7 +1,7 @@
 import $ from 'jquery'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 
-export function addIngredient(formData) {  
+export function addIngredient(formData) {
   return function(dispatch) {
     $.ajax({
       url: 'http://localhost:3000/pantryingredients',
@@ -12,6 +12,7 @@ export function addIngredient(formData) {
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
       dispatch({type: 'ADD_INGREDIENT', payload: response})
+      // browserHistory.push(`/pantries/${response.currentpantry.id}`)
     })
   }
 }
