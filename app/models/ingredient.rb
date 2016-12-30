@@ -13,4 +13,6 @@ class Ingredient < ActiveRecord::Base
   belongs_to :category
   has_many :pantry_ingredients
   has_many :pantries, through: :pantry_ingredients
+
+  validates :name, presence: true
 end

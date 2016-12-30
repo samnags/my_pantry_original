@@ -10,4 +10,6 @@
 
 class Measurement < ActiveRecord::Base
   has_many :pantry_ingredients
+
+  validates :name, presence: true
 end

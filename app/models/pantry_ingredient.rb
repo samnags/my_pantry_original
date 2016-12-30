@@ -17,4 +17,7 @@ class PantryIngredient < ActiveRecord::Base
   belongs_to :pantry
   belongs_to :measurement
   has_one :category, through: :ingredient
+
+  validates :pantry_id, :ingredient_id, :quantity, :measurement_id, presence: true
+
 end
