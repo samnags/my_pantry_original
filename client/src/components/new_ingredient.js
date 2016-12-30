@@ -44,7 +44,7 @@ class newIngredient extends Component {
   render() {
     return(
       <div>
-        <h2>Add a Ingredient</h2>
+        <h2>Add an Ingredient</h2>
         <form onSubmit={this.onIngredientSubmit}>
           <label>Quantity</label>
           <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
@@ -68,7 +68,7 @@ class newIngredient extends Component {
 }
 
 function mapStateToProps(state) {
-  return {    
+  return {
     categories: state.ingredient.categories,
     measurements: state.ingredient.measurements
   }
