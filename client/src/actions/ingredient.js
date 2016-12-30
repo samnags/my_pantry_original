@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 
 export function addIngredient(formData) {
   return function(dispatch) {
@@ -12,7 +12,7 @@ export function addIngredient(formData) {
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
       dispatch({type: 'ADD_INGREDIENT', payload: response})
-      // browserHistory.push(`/pantries/${response.currentpantry.id}`)
+      dispatch({type: 'ADD_INGREDIENT_FORM'})      
     })
   }
 }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class newIngredient extends Component {
   constructor(props) {
     super(props)
-    this.state = { ingredientInfo: { quantity: '', measurement: '--', ingredient: '', currentPantry: this.props.currentPantry.id, category: '' }}
+    this.state = { ingredientInfo: { quantity: '', measurement: '--', ingredient: '', currentPantry: this.props.currentPantry, category: '' }}
 
     this.onIngredientChange = this.onIngredientChange.bind(this)
     this.onIngredientSubmit = this.onIngredientSubmit.bind(this)
@@ -36,7 +36,7 @@ class newIngredient extends Component {
   }
 
   renderMeasurements() {
-    return this.props.measurements.map((measurement) => {      
+    return this.props.measurements.map((measurement) => {
       return <option key={measurement.id} value={measurement.name}>{measurement.name}</option>
     })
   }
@@ -50,12 +50,14 @@ class newIngredient extends Component {
           <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
           <label>Measurement</label>
             <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
+              <option key='Nothing' value='Nothing'>--</option>
               {this.renderMeasurements()}
             </select>
           <label>Name</label>
           <input type="text" placeholder="Ingredient" name="ingredient" value={this.state.ingredientName} onChange={this.onIngredientChange} />
           <label>Category</label>
             <select name="category" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.category}>
+              <option key='Nothing' value='Nothing'>--</option>
               {this.renderCategories()}
             </select>
           <input type="submit"/>
@@ -66,8 +68,7 @@ class newIngredient extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    currentPantry: state.pantry.currentPantry,
+  return {    
     categories: state.ingredient.categories,
     measurements: state.ingredient.measurements
   }

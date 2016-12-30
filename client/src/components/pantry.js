@@ -24,11 +24,10 @@ class Pantry extends Component {
   }
 
   render() {
-    // debugger
     return(
       <div>
         <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
-        { this.props.addIngredientForm ? <NewIngredient /> : null }
+        { this.props.addIngredientForm ? <NewIngredient currentPantry={this.props.currentPantry} /> : null }
         <IngredientTable
           id={this.props.params.id}
           ingredients={this.props.ingredients}
@@ -38,7 +37,7 @@ class Pantry extends Component {
     )
   }
 }
-//
+
 function mapStateToProps(state) {
   return {
     ingredients: state.ingredient.ingredients,

@@ -3,7 +3,7 @@ import { Col, Table } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
 
 const IngredientTable = (props) => {
-  var tableRows = props.ingredients.map((ingredient) => {
+  var tableRows = props.ingredients.map((ingredient) => {    
         return <IngredientTableRow
           key={ingredient.created_at}
           name={ingredient.ingredient.name}

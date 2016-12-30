@@ -7,7 +7,7 @@ class PantryingredientsController < ApplicationController
     ing.measurement_id = measurement_params.id
     ing.ingredient = ingredient_params
 
-    if ing.save
+    if ing.save      
       render json:
       {
         ingredient: ing.ingredient.name,
