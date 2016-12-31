@@ -1,81 +1,80 @@
 import React from 'react'
-import { Col, Table } from 'react-bootstrap'
+// import { Col, Table } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
+import Reactable from 'reactable'
+
+
+var Table = Reactable.Table;
 
 const IngredientTable = (props) => {
+
   let tableRows = null
-  
+
   if (props.ingredients.length > 0) {
     tableRows = props.ingredients.map((ingredient) => {
-          return <IngredientTableRow
-            key={ingredient.created_at}
-            name={ingredient.ingredient.name}
-            quantity={ingredient.quantity}
-            measurement={ingredient.measurement.name}
-            category={ingredient.category.name}
-            />
+      return (
+          { Quantity: ingredient.quantity,
+            Measurment: ingredient.measurement.name,
+            Name: ingredient.ingredient.name,
+            Category: ingredient.category.name }
+          )
       })
   }
-
-
+    console.log(tableRows)
     return (
-      <Col xs={6} md={4}>
-      {props.location}
-      <Table bordered condensed responsive={true} >
-        <thead>
-          <tr>
-            <th>
-              Quantity
-            </th>
-            <th>
-              Measurement
-            </th>
-            <th>
-              Ingredient
-            </th>
-            <th>
-              Category
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableRows}
-        </tbody>
-      </Table>
-      </Col>
+        <Table data={tableRows}
+
+        />
+
+      // <Col xs={6} md={4}>
+      // {props.location}
+      // <Table bordered condensed responsive={true} >
+      //   <thead>
+      //     <tr>
+      //       <th>
+      //         Quantity
+      //       </th>
+      //       <th>
+      //         Measurement
+      //       </th>
+      //       <th>
+      //         Ingredient
+      //       </th>
+      //       <th>
+      //         Category
+      //       </th>
+      //     </tr>
+      //   </thead>
+      //   <tbody>
+      //     {tableRows}
+      //   </tbody>
+      // </Table>
+      // </Col>
     )
   }
-//
+
 module.exports = IngredientTable
 
-// var tableRows = props.ingredients.map((ingredient) => {
-//       return <IngredientTableRow
-//         key={ingredient.created_at ? ingredient.created_at : 'None' }
-//         name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
-//         quantity={ingredient.quantity ? ingredient.quantity : 'None'}
-//         measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
-//         category={ingredient.category ? ingredient.category.name : 'None'}
-//         />
-//   })
 
-// class IngredientTable extends Component {
-//   componentWillMount() {
-//     this.props.fetchPantryIngredients(this.props.id)
+// const IngredientTable = (props) => {
+//   let tableRows = null
+//
+//   if (props.ingredients.length > 0) {
+//     tableRows = props.ingredients.map((ingredient) => {
+//           return <IngredientTableRow
+//             key={ingredient.created_at}
+//             name={ingredient.ingredient.name}
+//             quantity={ingredient.quantity}
+//             measurement={ingredient.measurement.name}
+//             category={ingredient.category.name}
+//             />
+//       })
 //   }
 //
-//   renderTableRows(ingredient) {
-//       return <IngredientTableRow
-//         key={ingredient.created_at}
-//         name={ingredient.ingredient.name ? ingredient.ingredient.name : 'None'}
-//         quantity={ingredient.quantity ? ingredient.quantity : 'None'}
-//         measurement={ingredient.measurement ? ingredient.measurement.name : 'None' }
-//         category={ingredient.category ? ingredient.category.name : 'None'}
-//       />
-//   }
 //
-//   render() {
-//     return(
+//     return (
 //       <Col xs={6} md={4}>
+//       {props.location}
 //       <Table bordered condensed responsive={true} >
 //         <thead>
 //           <tr>
@@ -94,16 +93,11 @@ module.exports = IngredientTable
 //           </tr>
 //         </thead>
 //         <tbody>
-//           {this.props.ingredients.map(this.renderTableRows)}
+//           {tableRows}
 //         </tbody>
 //       </Table>
 //       </Col>
 //     )
 //   }
-// }
 //
-// function mapStateToProps(state) {
-//   return { ingredients: state.ingredient.ingredients }
-// }
-//
-// export default connect(mapStateToProps, { fetchPantryIngredients })(IngredientTable)
+// module.exports = IngredientTable

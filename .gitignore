@@ -17,6 +17,8 @@
 *log
 !/log/.keep
 /tmp
+/.byebug_history
+
 
 config/application.yml
 client/node_modules/*
