@@ -3,15 +3,20 @@ import { Col, Table } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
 
 const IngredientTable = (props) => {
-  var tableRows = props.ingredients.map((ingredient) => {    
-        return <IngredientTableRow
-          key={ingredient.created_at}
-          name={ingredient.ingredient.name}
-          quantity={ingredient.quantity}
-          measurement={ingredient.measurement.name}
-          category={ingredient.category.name}
-          />
-    })
+  let tableRows = null
+  
+  if (props.ingredients.length > 0) {
+    tableRows = props.ingredients.map((ingredient) => {
+          return <IngredientTableRow
+            key={ingredient.created_at}
+            name={ingredient.ingredient.name}
+            quantity={ingredient.quantity}
+            measurement={ingredient.measurement.name}
+            category={ingredient.category.name}
+            />
+      })
+  }
+
 
     return (
       <Col xs={6} md={4}>

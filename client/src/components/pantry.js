@@ -16,8 +16,7 @@ class Pantry extends Component {
     this.props.toggleIngredientForm()
   }
 
-  componentWillReceiveProps(nextProps) {
-    // debugger
+  componentWillReceiveProps(nextProps) {    
     if ((this.props.params.id !== nextProps.params.id) || (this.props.addingIngredient !== nextProps.addingIngredient)) {
       this.props.fetchPantry(nextProps.params.id)
       this.props.fetchPantryIngredients(nextProps.params.id)
