@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { updateIngredient, getCategories, getMeasurements } from '../actions/ingredient'
+import { updateIngredient, toggleEditIngredientForm, deleteIngredient, getCategories, getMeasurements } from '../actions/ingredient'
 import { connect } from 'react-redux'
+import { Button } from 'react-bootstrap'
 
 class editIngredient extends Component {
   constructor(props) {
     super(props)
-    
+
     this.state = {
       ingredientInfo: {
         id: this.props.ingredient.pi.id,
@@ -17,11 +18,17 @@ class editIngredient extends Component {
 
     this.onIngredientChange = this.onIngredientChange.bind(this)
     this.onIngredientSubmit = this.onIngredientSubmit.bind(this)
+    this.onIngredientDelete = this.onIngredientDelete.bind(this)
+    this.onIngredientCancel = this.onIngredientCancel.bind(this)
   }
 
   componentDidMount() {
     this.props.getCategories()
     this.props.getMeasurements()
+  }
+
+  onIngredientCancel() {
+    this.props.toggleEditIngredientForm()
   }
 
   onIngredientChange(event) {
@@ -35,6 +42,11 @@ class editIngredient extends Component {
   onIngredientSubmit(event) {
     event.preventDefault()
     this.props.updateIngredient(this.state.ingredientInfo)
+  }
+
+  onIngredientDelete(event) {
+    event.preventDefault()
+    this.props.deleteIngredient(this.state.ingredientInfo.id)
   }
 
   renderCategories() {
@@ -74,6 +86,8 @@ class editIngredient extends Component {
             </select>
           <input type="submit"/>
         </form>
+        <Button bsStyle="danger" onClick={this.onIngredientDelete}>Delete</Button>
+        <Button bsStyle="warning" onClick={this.onIngredientCancel}>Cancel</Button>
       </div>
     )
   }
@@ -86,4 +100,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { updateIngredient, getCategories, getMeasurements })(editIngredient)
+export default connect(mapStateToProps, { updateIngredient, toggleEditIngredientForm, deleteIngredient, getCategories, getMeasurements })(editIngredient)

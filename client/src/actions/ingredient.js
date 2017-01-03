@@ -36,6 +36,21 @@ export function updateIngredient(formData) {
   }
 }
 
+export function deleteIngredient(id) {
+  return function(dispatch) {
+    $.ajax({
+      url: `http://localhost:3000/pantryingredients/${id}`,
+      type: 'DELETE',
+      contentType:"application/json; charset=utf-8",
+      datatype: 'json',
+      headers: {authorization: localStorage.getItem('jwt')}
+    }).then((response) => {
+      console.log(response)
+      dispatch({type: 'EDIT_INGREDIENT_FORM'})
+    })
+  }
+}
+
 export function fetchIngredient(pantry, ingredient) {
   return function(dispatch) {
     dispatch({type: 'EDIT_INGREDIENT_FORM'})
@@ -81,11 +96,18 @@ export function getMeasurements() {
 }
 
 
-export function toggleIngredientForm() {
+export function toggleAddIngredientForm() {
   return function(dispatch) {
     dispatch({type: 'ADD_INGREDIENT_FORM'})
   }
 }
+
+export function toggleEditIngredientForm() {
+  return function(dispatch) {
+    dispatch({type: 'EDIT_INGREDIENT_FORM'})
+  }
+}
+
 
 export function fetchPantryIngredients(id) {
   return function(dispatch) {

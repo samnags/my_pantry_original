@@ -43,6 +43,12 @@ class PantryingredientsController < ApplicationController
 
   end
 
+  def destroy
+    byebug
+    ing = PantryIngredient.find(params[:pantryingredient][:id])
+    ing.delete
+  end
+
   def find
     pantry_id = Pantry.find(params[:pantry])
     ingredient_id = Ingredient.find_by(name: params[:ingredient])

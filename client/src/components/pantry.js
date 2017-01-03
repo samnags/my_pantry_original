@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPantry } from '../actions/pantry'
-import { toggleIngredientForm } from '../actions/ingredient'
+import { toggleAddIngredientForm } from '../actions/ingredient'
 import EditIngredient from './edit_ingredient'
 import NewIngredient from './new_ingredient'
 import IngredientTable from './ingredient_table'
@@ -13,14 +13,14 @@ class Pantry extends Component {
     this.props.fetchPantryIngredients(this.props.params.id)
   }
 
-  handleClick() {
-    this.props.toggleIngredientForm()
+  handleAddClick() {
+    this.props.toggleAddIngredientForm()
   }
 
   handleRowClick(event) {
     let ingredient = event.target.innerText
     let pantry = this.props.params.id
-    this.props.fetchIngredient(pantry, ingredient)    
+    this.props.fetchIngredient(pantry, ingredient)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -33,7 +33,7 @@ class Pantry extends Component {
   render() {
     return(
       <div>
-        <button onClick={this.handleClick.bind(this)}>Add an Ingredient</button>
+        <button onClick={this.handleAddClick.bind(this)}>Add an Ingredient</button>
         { this.props.addIngredientForm ? <NewIngredient currentPantry={this.props.currentPantry} /> : null }
         { this.props.editIngredientForm ? <EditIngredient ingredient={this.props.editIngredient}  currentPantry={this.props.currentPantry} /> : null }
         <IngredientTable
@@ -60,4 +60,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { fetchPantry, toggleIngredientForm, fetchPantryIngredients, fetchIngredient})(Pantry)
+export default connect(mapStateToProps, { fetchPantry, toggleAddIngredientForm, fetchPantryIngredients, fetchIngredient})(Pantry)
