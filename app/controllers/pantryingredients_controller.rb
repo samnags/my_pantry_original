@@ -43,10 +43,10 @@ class PantryingredientsController < ApplicationController
 
   end
 
-  def destroy
-    byebug
-    ing = PantryIngredient.find(params[:pantryingredient][:id])
+  def destroy    
+    ing = PantryIngredient.find(params[:id])
     ing.delete
+    render json: { success: 'true' }
   end
 
   def find
@@ -62,7 +62,6 @@ class PantryingredientsController < ApplicationController
           currentpantry: pi.pantry
       }
   end
-
 
   private
 

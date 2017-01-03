@@ -24,7 +24,12 @@ class Pantry extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ((this.props.params.id !== nextProps.params.id) || (this.props.addingIngredient !== nextProps.addingIngredient) || (this.props.editingIngredient !== nextProps.editingIngredient)) {
+    // debugger
+    if ((this.props.params.id !== nextProps.params.id) ||
+        (this.props.addingIngredient !== nextProps.addingIngredient) ||
+        (this.props.editingIngredient !== nextProps.editingIngredient) ||
+        (this.props.deletingIngredient !== nextProps.deletingIngredient))
+    {
       this.props.fetchPantry(nextProps.params.id)
       this.props.fetchPantryIngredients(nextProps.params.id)
     }
@@ -51,6 +56,7 @@ function mapStateToProps(state) {
   return {
     addingIngredient: state.ingredient.addingIngredient,
     editingIngredient: state.ingredient.editingIngredient,
+    deletingIngredient: state.ingredient.deletingIngredient,
     ingredients: state.ingredient.ingredients,
     editIngredient: state.ingredient.editIngredient,
     addIngredientForm: state.ingredient.addIngredientForm,

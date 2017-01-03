@@ -38,6 +38,7 @@ export function updateIngredient(formData) {
 
 export function deleteIngredient(id) {
   return function(dispatch) {
+    dispatch({type: 'DELETE_INGREDIENT'})
     $.ajax({
       url: `http://localhost:3000/pantryingredients/${id}`,
       type: 'DELETE',
@@ -47,6 +48,7 @@ export function deleteIngredient(id) {
     }).then((response) => {
       console.log(response)
       dispatch({type: 'EDIT_INGREDIENT_FORM'})
+      dispatch({type: 'DELETE_INGREDIENT'})
     })
   }
 }
