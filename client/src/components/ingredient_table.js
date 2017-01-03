@@ -1,6 +1,5 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
-import IngredientTableRow from './ingredient_table_row'
 import Reactable from 'reactable'
 
 var Table = Reactable.Table;
@@ -22,7 +21,14 @@ const IngredientTable = (props) => {
     console.log(tableRows)
     return (
         <Col xs={6} md={4}>
-          <Table className={'table table-bordered table-responsive table-hover'} data={tableRows} sortable={true}/>
+          <Table
+            className={'table table-bordered table-responsive table-hover'}
+            data={tableRows}
+            sortable={true}
+            // filterable={['Category']}
+            noDataText="No matching records found."
+            onClick={props.onClick}
+            />
         </Col>
 
       // <Col xs={6} md={4}>
