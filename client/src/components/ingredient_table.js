@@ -1,8 +1,7 @@
 import React from 'react'
-// import { Col, Table } from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 import IngredientTableRow from './ingredient_table_row'
 import Reactable from 'reactable'
-
 
 var Table = Reactable.Table;
 
@@ -22,9 +21,9 @@ const IngredientTable = (props) => {
   }
     console.log(tableRows)
     return (
-        <Table data={tableRows}
-
-        />
+        <Col xs={6} md={4}>
+          <Table data={tableRows} sortable={true}/>
+        </Col>
 
       // <Col xs={6} md={4}>
       // {props.location}
