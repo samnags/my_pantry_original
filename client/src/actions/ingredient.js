@@ -19,19 +19,19 @@ export function addIngredient(formData) {
 }
 
 export function updateIngredient(formData) {
-  debugger
   return function(dispatch) {
     dispatch({type: 'EDIT_INGREDIENT'})
     $.ajax({
       url: `http://localhost:3000/pantryingredients/${formData.id}`,
-      type: 'POST',
-      data: JSON.stringify({currentPantry: formData.currentPantry, quantity: formData.quantity, measurement: formData.measurement, ingredient: formData.ingredient, category: formData.category}),
+      type: 'PATCH',
+      data: JSON.stringify({id: formData.id, currentPantry: formData.currentPantry, quantity: formData.quantity, measurement: formData.measurement, ingredient: formData.ingredient, category: formData.category}),
       contentType:"application/json; charset=utf-8",
       datatype: 'json',
       headers: {authorization: localStorage.getItem('jwt')}
     }).then((response) => {
-      // dispatch({type: 'ADD_INGREDIENT', payload: response})
-      // dispatch({type: 'ADD_INGREDIENT_FORM'})
+      console.log(response)
+      dispatch({type: 'EDIT_INGREDIENT', payload: response})
+      dispatch({type: 'EDIT_INGREDIENT_FORM'})
     })
   }
 }
@@ -51,8 +51,6 @@ export function fetchIngredient(pantry, ingredient) {
     })
   }
 }
-
-
 
 export function getCategories() {
   return function(dispatch) {

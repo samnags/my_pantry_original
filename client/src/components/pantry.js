@@ -20,14 +20,11 @@ class Pantry extends Component {
   handleRowClick(event) {
     let ingredient = event.target.innerText
     let pantry = this.props.params.id
-    this.props.fetchIngredient(pantry, ingredient)
-    // have to find that specific item in database - API call
-    // return info from API to edit Ingredient component
-    // change info based on edit's submission
+    this.props.fetchIngredient(pantry, ingredient)    
   }
 
   componentWillReceiveProps(nextProps) {
-    if ((this.props.params.id !== nextProps.params.id) || (this.props.addingIngredient !== nextProps.addingIngredient)) {
+    if ((this.props.params.id !== nextProps.params.id) || (this.props.addingIngredient !== nextProps.addingIngredient) || (this.props.editingIngredient !== nextProps.editingIngredient)) {
       this.props.fetchPantry(nextProps.params.id)
       this.props.fetchPantryIngredients(nextProps.params.id)
     }
@@ -53,6 +50,7 @@ class Pantry extends Component {
 function mapStateToProps(state) {
   return {
     addingIngredient: state.ingredient.addingIngredient,
+    editingIngredient: state.ingredient.editingIngredient,
     ingredients: state.ingredient.ingredients,
     editIngredient: state.ingredient.editIngredient,
     addIngredientForm: state.ingredient.addIngredientForm,

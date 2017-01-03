@@ -23,21 +23,37 @@ class PantryingredientsController < ApplicationController
 
 
   def update
-    byebug
-    # ing = PantryIngredient.find_by(name: params[:ingredient])
+    ing = PantryIngredient.find(params[:pantryingredient][:id])
+    ing.quantity = quantity_params
+    ing.measurement_id = measurement_params.id
+    ing.ingredient = ingredient_params
+
+    if ing.save
+      render json:
+      {
+        ingredient: ing.ingredient.name,
+        quantity: ing.quantity,
+        measurement: Measurement.find(ing.measurement_id).name,
+        category: ing.ingredient.category.name,
+        currentpantry: ing.pantry
+      }
+    else
+      render status: 404, json: {error: ing.errors.full_messages}
+    end
+
   end
 
   def find
     pantry_id = Pantry.find(params[:pantry])
     ingredient_id = Ingredient.find_by(name: params[:ingredient])
-    pi = PantryIngredient.find_by_pantry_id_and_ingredient_id(pantry_id, ingredient_id)    
-      render json:
-      {
-        ingredient: pi.ingredient.name,
-        quantity: pi.quantity,
-        measurement: pi.measurement.name,
-        category: pi.category.name,
-        currentpantry: pi.pantry
+    pi = PantryIngredient.find_by_pantry_id_and_ingredient_id(pantry_id, ingredient_id)
+    render json:
+        { pi: pi,
+          ingredient: pi.ingredient.name,
+          quantity: pi.quantity,
+          measurement: pi.measurement.name,
+          category: pi.category.name,
+          currentpantry: pi.pantry
       }
   end
 

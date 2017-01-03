@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 class editIngredient extends Component {
   constructor(props) {
     super(props)
-
+    
     this.state = {
       ingredientInfo: {
+        id: this.props.ingredient.pi.id,
         quantity: this.props.ingredient.quantity,
         measurement: this.props.ingredient.measurement,
         ingredient: this.props.ingredient.ingredient,
@@ -58,7 +59,7 @@ class editIngredient extends Component {
           <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientInfo.quantity} onChange={this.onIngredientChange} />
 
           <label>Measurement</label>
-            <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
+            <select name="measurement" onChange={this.onIngredientChange} value={this.state.ingredientInfo.measurement}>
               <option key='Nothing' value='Nothing'>--</option>
               {this.renderMeasurements()}
             </select>

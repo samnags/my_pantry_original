@@ -25,7 +25,6 @@ export default function ingredientReducer(state = initialState, action) {
     case 'EDIT_INGREDIENT':
       return {...state, editingIngredient: !state.editingIngredient, editIngredient: action.payload}
 
-
     default:
       return state
   }
