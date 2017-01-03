@@ -22,7 +22,7 @@ const IngredientTable = (props) => {
     console.log(tableRows)
     return (
         <Col xs={6} md={4}>
-          <Table data={tableRows} sortable={true}/>
+          <Table className={'table table-bordered table-responsive table-hover'} data={tableRows} sortable={true}/>
         </Col>
 
       // <Col xs={6} md={4}>
