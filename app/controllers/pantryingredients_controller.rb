@@ -20,8 +20,26 @@ class PantryingredientsController < ApplicationController
       render status: 404, json: {error: ing.errors.full_messages}
     end
   end
-  # render json: ing.includes(:ingredient, :category, :measurement), include: [:ingredient, :category, :measurement]
-  # render json: pi.includes(:ingredient, :category, :measurement), include: [:ingredient, :category, :measurement]
+
+
+  def update
+    byebug
+    # ing = PantryIngredient.find_by(name: params[:ingredient])
+  end
+
+  def find
+    pantry_id = Pantry.find(params[:pantry])
+    ingredient_id = Ingredient.find_by(name: params[:ingredient])
+    pi = PantryIngredient.find_by_pantry_id_and_ingredient_id(pantry_id, ingredient_id)    
+      render json:
+      {
+        ingredient: pi.ingredient.name,
+        quantity: pi.quantity,
+        measurement: pi.measurement.name,
+        category: pi.category.name,
+        currentpantry: pi.pantry
+      }
+  end
 
 
   private

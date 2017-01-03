@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
-import { addIngredient, getCategories, getMeasurements } from '../actions/ingredient'
+import { updateIngredient, getCategories, getMeasurements } from '../actions/ingredient'
 import { connect } from 'react-redux'
 
-class newIngredient extends Component {
+class editIngredient extends Component {
   constructor(props) {
     super(props)
-    this.state = { ingredientInfo: { quantity: '', measurement: '--', ingredient: '', currentPantry: this.props.currentPantry, category: '' }}
+
+    this.state = {
+      ingredientInfo: {
+        quantity: this.props.ingredient.quantity,
+        measurement: this.props.ingredient.measurement,
+        ingredient: this.props.ingredient.ingredient,
+        currentPantry: this.props.currentpantry,
+        category: this.props.ingredient.category }}
 
     this.onIngredientChange = this.onIngredientChange.bind(this)
     this.onIngredientSubmit = this.onIngredientSubmit.bind(this)
@@ -21,12 +28,12 @@ class newIngredient extends Component {
     const ingredients = this.state.ingredientInfo
     ingredients[field] = event.target.value
     ingredients["currentPantry"] = this.props.currentPantry.id
-    this.setState({ ingredientInfo:  ingredients })
+    this.setState({ ingredientInfo: ingredients })
   }
 
   onIngredientSubmit(event) {
     event.preventDefault()
-    this.props.addIngredient(this.state.ingredientInfo)
+    this.props.updateIngredient(this.state.ingredientInfo)
   }
 
   renderCategories() {
@@ -42,21 +49,25 @@ class newIngredient extends Component {
   }
 
   render() {
+
     return(
       <div>
-        <h2>Add an Ingredient</h2>
+        <h2>Edit an Ingredient</h2>
         <form onSubmit={this.onIngredientSubmit}>
           <label>Quantity</label>
-          <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
+          <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientInfo.quantity} onChange={this.onIngredientChange} />
+
           <label>Measurement</label>
             <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
               <option key='Nothing' value='Nothing'>--</option>
               {this.renderMeasurements()}
             </select>
+
           <label>Name</label>
-          <input type="text" placeholder="Ingredient" name="ingredient" value={this.state.ingredientName} onChange={this.onIngredientChange} />
+          <input type="text" placeholder="Ingredient" name="ingredient" value={this.state.ingredientInfo.ingredient} onChange={this.onIngredientChange} />
+
           <label>Category</label>
-            <select name="category" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.category}>
+            <select name="category" onChange={this.onIngredientChange} value={this.state.ingredientInfo.category}>
               <option key='Nothing' value='Nothing'>--</option>
               {this.renderCategories()}
             </select>
@@ -74,4 +85,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { addIngredient, getCategories, getMeasurements })(newIngredient)
+export default connect(mapStateToProps, { updateIngredient, getCategories, getMeasurements })(editIngredient)

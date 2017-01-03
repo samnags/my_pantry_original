@@ -17,8 +17,7 @@ const IngredientTable = (props) => {
             Category: ingredient.category.name }
           )
       })
-  }
-    console.log(tableRows)
+  }    
     return (
         <Col xs={6} md={4}>
           <Table
