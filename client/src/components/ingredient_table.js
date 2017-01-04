@@ -17,13 +17,13 @@ const IngredientTable = (props) => {
             Category: ingredient.category.name }
           )
       })
-  }    
+  }
     return (
         <Col xs={6} md={4}>
           <Table
             className={'table table-bordered table-responsive table-hover'}
             data={tableRows}
-            sortable={true}
+            // filterable={['Quantity', 'Measurment', 'Name', 'Category']}
             // filterable={['Category']}
             noDataText="No matching records found."
             onClick={props.onClick}
