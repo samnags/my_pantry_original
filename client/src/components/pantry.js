@@ -6,6 +6,7 @@ import EditIngredient from './edit_ingredient'
 import NewIngredient from './new_ingredient'
 import IngredientTable from './ingredient_table'
 import { fetchPantryIngredients, fetchIngredient } from '../actions/ingredient'
+import { Button } from 'react-bootstrap'
 
 class Pantry extends Component {
   componentDidMount() {
@@ -38,7 +39,7 @@ class Pantry extends Component {
   render() {
     return(
       <div>
-        <button onClick={this.handleAddClick.bind(this)}>Add an Ingredient</button>
+        <Button onClick={this.handleAddClick.bind(this)}>Add an Ingredient</Button>
         { this.props.addIngredientForm ? <NewIngredient currentPantry={this.props.currentPantry} /> : null }
         { this.props.editIngredientForm ? <EditIngredient ingredient={this.props.editIngredient}  currentPantry={this.props.currentPantry} /> : null }
         <IngredientTable

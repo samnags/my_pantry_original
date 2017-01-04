@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { addIngredient, getCategories, getMeasurements } from '../actions/ingredient'
 import { connect } from 'react-redux'
+import { Form, Button, FormGroup, FormControl, FieldGroup, ControlLabel } from 'react-bootstrap'
 
 class newIngredient extends Component {
   constructor(props) {
@@ -46,21 +47,56 @@ class newIngredient extends Component {
       <div>
         <h2>Add an Ingredient</h2>
         <form onSubmit={this.onIngredientSubmit}>
-          <label>Quantity</label>
-          <input type="number" min="0" placeholder="Quantity" name="quantity" value={this.state.ingredientName} onChange={this.onIngredientChange} />
-          <label>Measurement</label>
-            <select name="measurement" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.measurement}>
+        <Form inline controlId="formBasicText">
+          <ControlLabel>Quantity</ControlLabel>
+           {' '}
+          <FormControl
+            type="number"
+            placeholder="Enter a quantity"
+            name="quantity"
+            value={this.state.ingredientName}
+            onChange={this.onIngredientChange}
+          />
+          {' '}
+          <ControlLabel>Measurement</ControlLabel>
+          {' '}
+          <FormControl
+            componentClass="select"
+            placeholder="select"
+            name="measurement"
+            value={this.state.ingredientInfo.measurement}
+            onChange={this.onIngredientChange}>
               <option key='Nothing' value='Nothing'>--</option>
               {this.renderMeasurements()}
-            </select>
-          <label>Name</label>
-          <input type="text" placeholder="Ingredient" name="ingredient" value={this.state.ingredientName} onChange={this.onIngredientChange} />
-          <label>Category</label>
-            <select name="category" onChange={this.onIngredientChange} defaultValue={this.state.ingredientInfo.category}>
+          </FormControl>
+          {' '}
+          <ControlLabel>Name</ControlLabel>
+          {' '}
+          <FormControl
+            type="text"
+            placeholder="Ingredient"
+            name="ingredient"
+            value={this.state.ingredientName}
+            onChange={this.onIngredientChange}
+          />
+          {' '}
+          <ControlLabel>Category</ControlLabel>
+          {' '}
+          <FormControl
+            componentClass="select"
+            placeholder="select"
+            name="category"
+            value={this.state.ingredientInfo.category}
+            onChange={this.onIngredientChange}>
               <option key='Nothing' value='Nothing'>--</option>
               {this.renderCategories()}
-            </select>
-          <input type="submit"/>
+          </FormControl>
+          {' '}
+          <Button type="submit">
+            Submit
+          </Button>
+
+          </Form>
         </form>
       </div>
     )
